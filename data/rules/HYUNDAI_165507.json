@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "HYUNDAI",
+    "code": "165507",
+    "name": "현대카드 ZERO Up(할인형)"
+  },
+  "source": {
+    "source_url": "https://www.hyundaicard.com/upload/card/%28%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81%29%20%ED%98%84%EB%8C%80%EC%B9%B4%EB%93%9C%20ZERO%20Up%28%ED%95%A0%EC%9D%B8%ED%98%95%29_260616.pdf",
+    "snapshot_id": "da286eac2332",
+    "file": "(가이드북) 현대카드 ZERO Up(할인형)_260616.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "ocr",
+  "benefit_unit": "청구할인",
+  "pooling": true,
+  "pooling_provenance": {
+    "page": 9,
+    "quote": "부가 서비스별 이용 실적 및 이용 한도는 본인+가족 카드 합산 적용되며"
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 4,
+        "quote": "실적 조건 및 할인 한도 없음"
+      },
+      {
+        "page": 4,
+        "quote": "실적 조건 및 할인 한도 없음"
+      }
+    ],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "all",
+      "min": 0,
+      "label": "전월 실적 조건 없음"
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "카드론",
+      "현금서비스",
+      "연회비",
+      "제수수료",
+      "국제브랜드 수수료",
+      "해외서비스 수수료",
+      "국세",
+      "관세",
+      "지방세",
+      "지방세외수입",
+      "상하수도 요금",
+      "벌과금",
+      "과태료",
+      "인지세",
+      "송달료",
+      "민원 발급 수수료",
+      "전기요금",
+      "TV 수신료",
+      "도시가스",
+      "아파트 관리비",
+      "부동산 임대료",
+      "월세",
+      "자동납부 서비스 이용 수수료",
+      "초등학교 납입금",
+      "중학교 납입금",
+      "고등학교 납입금",
+      "대학 등록금",
+      "대학원 등록금",
+      "상품권",
+      "현금성 유가증권",
+      "선불 카드",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "장애인 고용 부담금",
+      "고속도로 통행 요금",
+      "후불하이패스",
+      "고속버스",
+      "무이자 할부"
+    ],
+    "provenance": {
+      "page": 7,
+      "quote": "장기카드대출(카드론), 단기카드대출(현금서비스), 연회비, 제수수료, 이자"
+    }
+  },
+  "limit_groups": {},
+  "lines": [
+    {
+      "id": "auto_2",
+      "name": "온라인몰, 대형마트, 교육, 주유, 이동통신 요금 1.6% 청구할인",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 4,
+        "quote": "온라인몰, 대형마트, 교육, 주유, 이동통신 요금 10만원 이상 결제 시 1.6% 청구 할인"
+      },
+      "rate_bp": 160,
+      "min_amount": 100000,
+      "match": {
+        "merchant_keywords": [
+          "네이버플러스 스토어",
+          "쿠팡",
+          "SSG.COM",
+          "G마켓",
+          "옥션",
+          "이마트",
+          "농협하나로마트",
+          "롯데마트",
+          "학원",
+          "유치원",
+          "주유",
+          "SKT",
+          "KT",
+          "LG U+"
+        ]
+      }
+    }
+  ],
+  "base_line": {
+    "id": "auto_1",
+    "name": "국내외 가맹점 0.8% 청구할인",
+    "kind": "rate",
+    "limit_group": null,
+    "provenance": {
+      "page": 4,
+      "quote": "실적·한도 제한 없이 국내외 가맹점 0.8% 청구 할인"
+    },
+    "rate_bp": 80
+  },
+  "not_computed": [
+    {
+      "name": "긴급할인(선지급 포인트 서비스)",
+      "reason": "최대 50만 캐시를 선지급받아 이후 할인 혜택으로 상환하는 구조로, 월 단위 할인 계산에 직접 포함할 수 없는 선지급 부채 서비스임",
+      "provenance": {
+        "page": 5,
+        "quote": "최대 50만 긴급할인 캐시 먼저 받아 할인받고 카드 이용하며 받는 할인 혜택으로 상환"
+      }
+    },
+    {
+      "name": "메탈 플레이트 제공",
+      "reason": "발급 수수료 10만원이 부과되는 플레이트 옵션 서비스로, 월 단위 할인 혜택이 아님",
+      "provenance": {
+        "page": 6,
+        "quote": "본인 회원 신청 시 제공되며, 발급 수수료 10만원 별도 부과"
+      }
+    }
+  ],
+  "pending": [],
+  "extracted_at": "2026-11-05T14:18:54"
+}

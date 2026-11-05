@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "product": {"issuer": "SAMSUNG", "code": "AAP1727", "name": "삼성 iD ALL 카드"},
+  "source": {
+    "source_url": "https://www.samsungcard.com/filedownload.do?grpNo=1zPVy1PuFbwGC7xZyM4qtjFSTlM3VLP2H7JDdKfh380%3D&sn=1",
+    "snapshot_id": "926c7da16f8f",
+    "file": "삼성 iD ALL 카드 이용안내장.pdf"
+  },
+  "verified_by": "사람이 약관 원문과 대조해 확인 (2026-11-04)",
+  "pooling": true,
+  "pooling_provenance": {"page": 4, "quote": "본인카드와 가족카드의 이용실적, 할인한도는 합산하여 산정"},
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": ["건강보험", "국민연금", "고용보험", "산재보험", "장애인 고용부담금", "국세", "지방세", "공과금", "전기요금", "도시가스", "우편요금", "상하수도", "과태료", "임대료", "학교", "등록금", "시내버스", "버스", "지하철", "택시", "기프트", "선불카드", "상품권", "현금서비스", "카드론", "수수료", "연체료", "연회비"],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "약관 4쪽 '전월 이용금액 제외 대상'에 할인받은 매출 제외 조항은 없다. 대중교통·택시와 공과금이 실적에서 빠진다. 본인·가족카드 실적은 합산한다.",
+    "provenance": [
+      {"page": 4, "quote": "전월 이용금액 제외 대상"},
+      {"page": 4, "quote": "- 대중교통, 택시 이용금액"}
+    ],
+    "traps": ["대중교통·택시 이용금액은 할인도, 전월 실적도 인정되지 않습니다"]
+  },
+  "rounding": {"value": "floor_per_txn", "default_applied": true},
+  "cancel": {"value": "매출취소전표 접수월 이용금액에서 차감", "default_applied": false,
+             "provenance": {"page": 5, "quote": "결제 취소건의 경우, 매출취소전표 접수월의 이용금액에서 차감 반영"}},
+  "tiers": [
+    {"id": "none", "min": 0, "label": "40만원 미만 (0.5%만 제공)"},
+    {"id": "A", "min": 400000, "label": "40만원 이상~70만원 미만",
+     "provenance": {"page": 3, "quote": "전월 이용금액대별 통합 월 할인한도"}},
+    {"id": "B", "min": 700000, "label": "70만원 이상",
+     "provenance": {"page": 3, "quote": "전월 이용금액대별 통합 월 할인한도"}}
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": ["건강보험", "국민연금", "고용보험", "산재보험", "국세", "지방세", "공과금", "임대료", "학교", "등록금", "시내버스", "버스", "지하철", "택시", "고속도로", "통행료", "기프트", "선불카드", "상품권", "문자알림", "네이버페이", "카카오페이", "간편결제"],
+    "provenance": {"page": 4, "quote": "대중교통, 택시, 고속버스(차내 단말기 및 고속버스 앱 결제),"},
+    "easypay_provenance": {"page": 4, "quote": "자체 가맹점번호로 승인 처리되는 일부 결제건(간편결제,"}
+  },
+  "limit_groups": {
+    "idall_top5": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000},
+                   "provenance": {"page": 2, "quote": "전월 이용금액대별 월 할인한도"}},
+    "idall_25": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000},
+                 "provenance": {"page": 3, "quote": "전월 이용금액대별 통합 월 할인한도"}}
+  },
+  "choice_groups": [
+    {"id": "idall_top5", "lines": ["idall_dept", "idall_mart", "idall_super"], "pick": "max_spend",
+     "provenance": {"page": 2, "quote": "백화점·할인점·슈퍼마켓 영역 중 월 이용금액이 가장 큰"}}
+  ],
+  "lines": [
+    {"id": "idall_dept", "name": "많이 쓰는 영역 5% - 백화점", "kind": "rate", "rate_bp": 500, "limit_group": "idall_top5",
+     "available_tiers": ["A", "B"], "owner_types": ["본인"], "stack_base": true,
+     "match": {"merchant_keywords": ["신세계백화점", "롯데백화점", "현대백화점", "갤러리아백화점", "AK플라자"]},
+     "provenance": {"page": 2, "quote": "1개 영역에 대해 5% 결제일할인"},
+     "conditions_provenance": {"page": 2, "quote": "가족카드에는 제공되지 않음"}},
+    {"id": "idall_mart", "name": "많이 쓰는 영역 5% - 할인점", "kind": "rate", "rate_bp": 500, "limit_group": "idall_top5",
+     "available_tiers": ["A", "B"], "owner_types": ["본인"], "stack_base": true,
+     "match": {"merchant_keywords": ["이마트", "트레이더스", "롯데마트", "홈플러스", "하나로마트"],
+               "exclude_merchant_keywords": ["이마트24", "이마트에브리데이", "홈플러스익스프레스", "홈플러스 익스프레스"]},
+     "provenance": {"page": 2, "quote": "1개 영역에 대해 5% 결제일할인"},
+     "conditions_provenance": {"page": 2, "quote": "가족카드에는 제공되지 않음"}},
+    {"id": "idall_super", "name": "많이 쓰는 영역 5% - 슈퍼마켓", "kind": "rate", "rate_bp": 500, "limit_group": "idall_top5",
+     "available_tiers": ["A", "B"], "owner_types": ["본인"], "stack_base": true,
+     "match": {"merchant_keywords": ["이마트에브리데이", "GS THE FRESH", "GS수퍼마켓", "롯데슈퍼", "홈플러스 익스프레스"]},
+     "provenance": {"page": 2, "quote": "1개 영역에 대해 5% 결제일할인"},
+     "conditions_provenance": {"page": 2, "quote": "가족카드에는 제공되지 않음"}},
+    {"id": "idall_fuel", "name": "주유 2.5%", "kind": "rate", "rate_bp": 250, "limit_group": "idall_25",
+     "available_tiers": ["A", "B"], "fallback_to_base": true,
+     "match": {"merchant_keywords": ["주유소", "LPG충전소", "전기차충전"]},
+     "provenance": {"page": 3, "quote": "주유 주유소, LPG충전소, 전기차충전소"},
+     "conditions_provenance": {"page": 3, "quote": "월 할인한도 초과 시 다음 결제건부터 0.5% 할인 적용"}},
+    {"id": "idall_mobile", "name": "이동통신 2.5%", "kind": "rate", "rate_bp": 250, "limit_group": "idall_25",
+     "available_tiers": ["A", "B"], "requires_recurring": true, "fallback_to_base": true,
+     "match": {"merchant_keywords": ["SKT", "SK텔레콤", "KT", "LGU+", "LG U+", "LG유플러스", "알뜰폰"]},
+     "provenance": {"page": 3, "quote": "이동통신 SKT, KT, LG U+, 알뜰폰 이동통신요금 정기결제건"}},
+    {"id": "idall_apt", "name": "아파트 관리비 2.5%", "kind": "rate", "rate_bp": 250, "limit_group": "idall_25",
+     "available_tiers": ["A", "B"], "requires_recurring": true, "fallback_to_base": true,
+     "match": {"merchant_keywords": ["관리비"]},
+     "provenance": {"page": 3, "quote": "아파트 관리비 아파트 관리비 정기결제건"}}
+  ],
+  "base_line": {"id": "idall_base", "name": "국내외 가맹점 0.5%", "kind": "rate", "rate_bp": 50, "limit_group": null,
+                "provenance": {"page": 3, "quote": "전월 이용금액에 관계없이, 할인한도 없이 국내외 가맹점"}},
+  "not_computed": []
+}

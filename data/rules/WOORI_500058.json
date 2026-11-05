@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "WOORI",
+    "code": "500058",
+    "name": "카드의정석2 DAILY"
+  },
+  "source": {
+    "source_url": "https://pc.wooricard.com/dcpc/yh1/cct/cct11/prdntc/H1CCT211S09.do?crdPrdCd=500058",
+    "snapshot_id": "54fc35e14455",
+    "file": "상품안내장_카드의정석2 DAILY_260602.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "pdf",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "pooling_provenance": {
+    "page": 1,
+    "quote": "가족카드는 발급 불가합니다."
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": true,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 2,
+        "quote": "전월 실적은 전월 1일부터 말일(매출 승인일 기준)까지 카드별 이용실적이며"
+      }
+    ],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "0원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 0,
+      "label": "50만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상 100만원 미만 3,000원"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 500000,
+      "label": "50만원 이상 100만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상 100만원 미만 3,000원"
+      }
+    },
+    {
+      "id": "T3",
+      "min": 1000000,
+      "label": "100만원 이상 200만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "100만원 이상 200만원 미만 6,000원 5,000원 11,000원"
+      }
+    },
+    {
+      "id": "T4",
+      "min": 2000000,
+      "label": "200만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "200만원 이상 12,000원 17,000원"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "무이자할부",
+      "부분무이자할부",
+      "보육료",
+      "유치원보조비",
+      "바우처",
+      "관리비",
+      "공공임대료",
+      "부동산임대료",
+      "학교납부금",
+      "등록금",
+      "국세",
+      "지방세",
+      "관세",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "전기요금",
+      "우편요금",
+      "도시가스",
+      "상하수도",
+      "과태료",
+      "범칙금",
+      "벌금",
+      "여권발급",
+      "상품권",
+      "선물하기",
+      "선불카드",
+      "사이버머니",
+      "게임머니",
+      "기프트카드",
+      "환금성",
+      "교통카드",
+      "시외버스",
+      "고속버스",
+      "신차구매",
+      "의약품",
+      "제약회사",
+      "수수료",
+      "연회비",
+      "현금서비스",
+      "카드론",
+      "매출취소"
+    ],
+    "provenance": {
+      "page": 2,
+      "quote": "할인 제외 : 무이자할부금액(부분무이자할부금액 포함), 정부지원금(보육료, 유치원보조비, 바우처 이용금액 등), 아파트 관리비"
+    }
+  },
+  "limit_groups": {
+    "g_auto_2": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 3000,
+        "T3": 6000,
+        "T4": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "용금액 등), 아파트 관리비, LH/SH/전북개발공사 등 공공임대료, 부동산임대료, 초·중·고 학교 납부 50만원 이상 100만원 미만 3,000원 8,000원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 6,000원 5,000원 11,000원"
+        },
+        {
+          "page": 2,
+          "quote": "충전금액, 환금성 업종 이용금액, 교통카드(모바일 포함) 구매 및 충전금액, 시외버스/고속버스 요금 영역별 상세 유의사항 200만원 이상 12,000원 17,000원"
+        }
+      ]
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_2",
+      "name": "식비 음식점/주점 업종, 배달의민족, 쿠팡이츠, 요기요 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "식비 음식점/주점 업종, 배달의민족, 쿠팡이츠, 요기요"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "교통 택시 업종, 카카오T(택시), 5% 한하여 할인 제공"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "min_amount": 30000,
+      "match": {
+        "merchant_keywords": [
+          "음식점",
+          "주점",
+          "배달의민족",
+          "쿠팡이츠",
+          "요기요"
+        ]
+      }
+    },
+    {
+      "id": "auto_3",
+      "name": "장보기 쿠팡, 컬리, SSG.COM, 이마트, 롯데마트, 다이소 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "장보기 쿠팡, 컬리, SSG.COM, 이마트, 롯데마트, 다이소"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "국내외 가맹점 1% 청구할인 고정소비 영역 5% 청구할인 정기결제 50% 청구할인"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "min_amount": 30000,
+      "match": {
+        "merchant_keywords": [
+          "쿠팡",
+          "컬리",
+          "SSG.COM",
+          "이마트",
+          "롯데마트",
+          "다이소"
+        ]
+      }
+    },
+    {
+      "id": "auto_4",
+      "name": "교통 택시 업종, 카카오T(택시), 주유(SK에너지, GS칼텍스, S-OIL, HD현대오일뱅크) 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "교통 택시 업종, 카카오T(택시), 5%"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "min_amount": 30000,
+      "match": {
+        "merchant_keywords": [
+          "택시",
+          "카카오T",
+          "SK에너지",
+          "GS칼텍스",
+          "S-OIL",
+          "HD현대오일뱅크"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "통신 SKT, KT, LG U+ 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "통신 SKT, KT, LG U+"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "국내외 가맹점 1% 청구할인 고정소비 영역 5% 청구할인 정기결제 50% 청구할인"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "min_amount": 30000,
+      "match": {
+        "merchant_keywords": [
+          "SKT",
+          "KT",
+          "LG U+"
+        ]
+      }
+    }
+  ],
+  "base_line": {
+    "id": "auto_1",
+    "name": "국내외 가맹점 1% 청구할인",
+    "kind": "rate",
+    "limit_group": null,
+    "provenance": {
+      "page": 2,
+      "quote": "국내외 가맹점 1% 청구할인"
+    },
+    "rate_bp": 100,
+    "min_amount": 10000
+  },
+  "not_computed": [],
+  "pending": [
+    {
+      "name": "정기결제 넷플릭스, 유튜브 프리미엄, 티빙, 디즈니플러스, T우주패스 50% 청구할인",
+      "reason": "인용문이 약관 원문에 없음",
+      "status": "pending",
+      "value": {
+        "rate_text": "50%",
+        "fixed_won": null,
+        "limits": [
+          {
+            "tier_min_won": 500000,
+            "limit_won": 5000
+          }
+        ]
+      },
+      "quote": "넷플릭스, 유튜브 프리미엄, 티빙, 디즈니플러스, T우주패스 50% 5천원"
+    }
+  ],
+  "extracted_at": "2026-11-05T13:45:39"
+}

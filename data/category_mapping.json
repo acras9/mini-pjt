@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "note": "가맹점명으로 혜택 라인을 찾지 못한 거래에 쓰는 업종(category) → 혜택 라인 매핑표. line이 null이면 '혜택 라인 없음'이다. 여기에도 없는 업종은 '매핑 필요'로 계산에서 뺀다.",
+  "products": {
+    "WOORI:500045": {
+      "entries": [
+        {"category": "통신비", "merchant_keywords": ["인터넷"], "line": null, "note": "인터넷·집전화 결합상품은 할인 제외"},
+        {"category": "통신비", "line": "routine_telecom", "note": "휴대전화 요금 자동납부로 본다"},
+        {"category": "여가", "merchant_keywords": ["영상구독"], "line": "routine_digital", "note": "테스트 데이터의 가상 영상구독을 넷플릭스류 구독으로 본다"},
+        {"category": "여가", "line": null},
+        {"category": "생활", "line": null},
+        {"category": "식비", "line": null},
+        {"category": "주유비", "line": null},
+        {"category": "의료", "line": null},
+        {"category": "교통비", "line": null},
+        {"category": "보험", "line": null},
+        {"category": "음료", "line": null, "note": "커피·음료는 ROUTINE 할인 영역이 아니다"},
+        {"category": "IoT", "line": null},
+        {"category": "디지털구독", "line": null, "note": "넷플릭스·유튜브 등 약관 가맹점은 가맹점명으로 먼저 잡힌다. 남는 것(구글페이먼트 등 인앱결제)은 할인 제외"},
+        {"category": "도서", "line": null, "note": "교보문고 sam 등 약관 가맹점만 할인. 일반 도서 구매는 제외"},
+        {"category": "세금", "line": null, "discount_excluded": true, "performance_excluded": true, "note": "국세·지방세는 할인 제외이자 전월 실적 제외"},
+        {"category": "장보기", "line": null},
+        {"category": "보험료", "line": null}
+      ]
+    },
+    "SAMSUNG:AAP1727": {
+      "entries": [
+        {"category": "세금", "line": null, "discount_excluded": true, "performance_excluded": true, "note": "국세·지방세·공과금은 할인 제외이자 전월 이용금액 제외"}
+      ]
+    },
+    "KB:09292": {
+      "entries": [
+        {"category": "세금", "line": null, "discount_excluded": true, "note": "각종 세금은 적립 제외. 이 카드는 전월 실적 조건이 없다"}
+      ]
+    },
+    "WOORI:500044": {
+      "entries": [
+        {"category": "세금", "line": null, "discount_excluded": true, "note": "국세·지방세·공공요금은 할인 제외(상품안내장 2쪽). 이 카드는 전월 실적 조건이 없다"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "KB:9005": {
+    "product": {
+      "issuer": "KB",
+      "code": "09292",
+      "name": "쿠팡 와우 카드",
+      "issued": true,
+      "terms_ref": {
+        "pdf_url": "https://img2.kbcard.com/obj/card/download/_09292__prdctOpmn_20250702.pdf",
+        "released": "2023.07.20"
+      }
+    },
+    "snapshots": [
+      "8ff0fe99db73"
+    ],
+    "confirmed_at": "평가용 고정값"
+  },
+  "WOORI:9003": {
+    "product": {
+      "issuer": "WOORI",
+      "code": "500045",
+      "name": "카드의정석2 ROUTINE",
+      "issued": true,
+      "terms_ref": {
+        "has_desc": true
+      }
+    },
+    "snapshots": [
+      "dd4116e0a5a2"
+    ],
+    "confirmed_at": "평가용 고정값"
+  },
+  "SAMSUNG:9002": {
+    "product": {
+      "issuer": "SAMSUNG",
+      "code": "AAP1727",
+      "name": "삼성 iD ALL 카드",
+      "issued": null,
+      "terms_ref": {
+        "files": [
+          {
+            "name": "삼성 iD ALL 카드 이용안내장.pdf",
+            "grp": "1zPVy1PuFbwGC7xZyM4qtjFSTlM3VLP2H7JDdKfh380%3D",
+            "sn": "1"
+          }
+        ]
+      }
+    },
+    "snapshots": [
+      "926c7da16f8f"
+    ],
+    "confirmed_at": "평가용 고정값"
+  },
+  "WOORI:9004": {
+    "product": {
+      "issuer": "WOORI",
+      "code": "102493",
+      "name": "카드의정석 위비할인+",
+      "issued": false,
+      "terms_ref": {
+        "has_desc": true
+      }
+    },
+    "snapshots": [
+      "783becfe9f19"
+    ],
+    "confirmed_at": "평가용 고정값"
+  },
+  "SAMSUNG:9006": {
+    "product": {
+      "issuer": "SAMSUNG",
+      "code": "AAP0598",
+      "name": "삼성후불하이패스카드",
+      "issued": null,
+      "terms_ref": {
+        "files": [
+          {
+            "name": "삼성후불하이패스카드 이용안내장.pdf",
+            "grp": "1zPVy1PuFbwGC7xZyM4qtk86CSGP2tIqMyNb0SFua3Y%3D",
+            "sn": "1"
+          }
+        ]
+      }
+    },
+    "snapshots": [
+      "9b0df3b8af73"
+    ],
+    "confirmed_at": "평가용 고정값"
+  }
+}

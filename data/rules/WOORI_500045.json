@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "product": {"issuer": "WOORI", "code": "500045", "name": "카드의정석2 ROUTINE"},
+  "source": {
+    "source_url": "https://pc.wooricard.com/dcpc/yh1/cct/cct11/prdntc/H1CCT211S09.do?crdPrdCd=500045",
+    "snapshot_id": "dd4116e0a5a2",
+    "file": "카드의정석2 ROUTINE 안내장_최종.pdf"
+  },
+  "verified_by": "사람이 약관 원문과 대조해 확인 (2026-11-04)",
+  "pooling": false,
+  "pooling_provenance": {"page": 2, "quote": "전월 실적은 전월 1일부터 말일(매출 승인일 기준)까지 카드별 국내외 가맹점 이용실적이며"},
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": true,
+    "exclude_merchant_keywords": ["정부지원금", "보육료", "임대료", "학교", "등록금", "국세", "지방세", "관세", "건강보험", "국민연금", "고용보험", "산재보험", "전기요금", "전기료", "도시가스", "가스요금", "우편요금", "상하수도", "과태료", "범칙금", "벌금", "여권", "상품권", "선불카드", "기프트카드", "교통카드", "시외버스", "고속버스", "수수료", "연회비", "현금서비스", "카드론", "신차", "의약품"],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "약관 2쪽 전월 실적 제외 목록에 '할인받은 매출 제외' 조항은 없다. 다만 공공요금(전기요금·도시가스요금)이 실적에서 빠지는데, 이 둘은 생활 영역 15% 할인 대상이다. 할인받은 전기·가스 요금은 실적으로 인정되지 않는 함정이다.",
+    "provenance": [
+      {"page": 2, "quote": "전월 실적 제외 : 무이자할부금액, 정부지원금(보육료, 유치원보조비, 바우처 이용금액 등), LH/"},
+      {"page": 2, "quote": "공공요금(공과금) 내역 : 4대보험(건강보험/국민연금/고용보험/산재보험), 전기요금, 우편요금,"}
+    ],
+    "traps": ["생활 영역 할인 대상(전기·도시가스 요금)은 전월 실적에서 제외됩니다"]
+  },
+  "rounding": {"value": "floor_per_txn", "default_applied": true},
+  "cancel": {"value": "원래 승인월에서 차감", "default_applied": true},
+  "tiers": [
+    {"id": "none", "min": 0, "label": "50만원 미만 (혜택 없음)"},
+    {"id": "A", "min": 500000, "label": "50만원 이상~100만원 미만",
+     "provenance": {"page": 2, "quote": "50만원 이상~100만원 미만 영역별 5,000원"}},
+    {"id": "B", "min": 1000000, "label": "100만원 이상",
+     "provenance": {"page": 2, "quote": "100만원 이상 영역별 10,000원"}}
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": ["정부지원금", "보육료", "임대료", "학교", "등록금", "국세", "지방세", "관세", "건강보험", "국민연금", "고용보험", "산재보험", "우편요금", "상하수도", "과태료", "범칙금", "벌금", "여권", "상품권", "선불카드", "기프트카드", "교통카드", "시외버스", "고속버스", "수수료", "신차"],
+    "provenance": {"page": 2, "quote": "할인 제외 : 무이자할부금액(부분무이자할부금액 포함)"}
+  },
+  "limit_groups": {
+    "routine_life": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000}},
+    "routine_telecom": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000}},
+    "routine_edu": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000}},
+    "routine_rental": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000}},
+    "routine_digital": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000}},
+    "routine_membership": {"limit_by_tier": {"none": 0, "A": 5000, "B": 10000}}
+  },
+  "limit_groups_provenance": {"page": 2, "quote": "[정기결제 청구할인] 통합 월 할인한도"},
+  "rate_evidence": "15%·30%는 2쪽 표의 병합 셀이다. 15%는 생활·통신·교육/도서·렌탈 행, 30%는 디지털구독·멤버십 행에 걸쳐 있다 (PDF 글자 위치로 확인).",
+  "lines": [
+    {"id": "routine_life", "name": "정기결제-생활", "kind": "rate", "rate_bp": 1500, "limit_group": "routine_life",
+     "available_tiers": ["A", "B"], "requires_recurring": true,
+     "match": {"merchant_keywords": ["관리비", "전기요금", "전기료", "도시가스", "가스요금"]},
+     "provenance": {"page": 2, "quote": "생활 - 아파트관리비, 전기료, 도시가스비 자동납부 건에 한하여 할인 제공"}},
+    {"id": "routine_telecom", "name": "정기결제-통신", "kind": "rate", "rate_bp": 1500, "limit_group": "routine_telecom",
+     "available_tiers": ["A", "B"], "requires_recurring": true, "max_count_per_month": 1,
+     "match": {"merchant_keywords": ["SKT", "SK텔레콤", "KT", "LGU+", "LG U+", "LG유플러스", "우리WON모바일", "KT M모바일", "U+유모바일", "SK세븐모바일"]},
+     "provenance": {"page": 2, "quote": "통신 - 통합 월 1회 할인 제공"},
+     "conditions_provenance": {"page": 2, "quote": "제공(인터넷/집전화 등 결합상품은 할인 제외)"}},
+    {"id": "routine_edu", "name": "정기결제-교육/도서", "kind": "rate", "rate_bp": 1500, "limit_group": "routine_edu",
+     "available_tiers": ["A", "B"], "requires_recurring": true,
+     "match": {"merchant_keywords": ["결제선생", "학습지", "밀리의서재", "교보문고sam", "크레마클럽"]},
+     "provenance": {"page": 2, "quote": "교육/도서 • 결제선생(학원업종), 학습지업종"}},
+    {"id": "routine_rental", "name": "정기결제-렌탈", "kind": "rate", "rate_bp": 1500, "limit_group": "routine_rental",
+     "available_tiers": ["A", "B"], "requires_recurring": true,
+     "match": {"merchant_keywords": ["코웨이", "SK인텔릭스", "SK매직", "LG전자 가전구독"]},
+     "provenance": {"page": 2, "quote": "렌탈 • 코웨이, SK인텔릭스(구. SK매직), LG전자 가전구독"}},
+    {"id": "routine_digital", "name": "정기결제-디지털구독", "kind": "rate", "rate_bp": 3000, "limit_group": "routine_digital",
+     "available_tiers": ["A", "B"], "requires_recurring": true,
+     "match": {"merchant_keywords": ["유튜브", "YOUTUBE", "넷플릭스", "NETFLIX", "디즈니", "DISNEY", "티빙", "TVING", "CHATGPT", "OPENAI"]},
+     "provenance": {"page": 2, "quote": "디지털구독 • 유튜브 프리미엄, 넷플릭스, 디즈니플러스, 티빙"}},
+    {"id": "routine_membership", "name": "정기결제-멤버십", "kind": "rate", "rate_bp": 3000, "limit_group": "routine_membership",
+     "available_tiers": ["A", "B"], "requires_recurring": true,
+     "match": {"merchant_keywords": ["와우멤버십", "네이버플러스", "배민클럽", "컬리멤버스", "T우주"]},
+     "provenance": {"page": 2, "quote": "멤버십 • 쿠팡 와우멤버십, 네이버플러스 멤버십, 배민클럽"}},
+    {"id": "routine_easypay", "name": "간편결제 청구할인", "kind": "fixed", "fixed_won": 1000, "limit_group": null,
+     "available_tiers": ["A", "B"], "min_amount": 50000, "max_count_per_month": 3,
+     "match": {"merchant_keywords": ["우리WON페이", "네이버페이", "카카오페이"]},
+     "provenance": {"page": 2, "quote": "우리WON페이, 네이버페이, 카카오페이 1,000원 통합 3회"},
+     "conditions_provenance": {"page": 2, "quote": "건당 5만원 이상 결제 시 할인 제공"}}
+  ],
+  "not_computed": [
+    {"name": "해외 1.5% 청구할인", "reason": "반기(1~6월/7~12월) 한도라 월 단위 계산에서 뺀다",
+     "provenance": {"page": 2, "quote": "해외 온/오프라인 가맹점 1.5% 반기별(1~6월/7~12월) 각 6만원"}},
+    {"name": "최초 발급 유예", "reason": "발급일 정보가 없어 반영하지 않는다",
+     "provenance": {"page": 2, "quote": "최초발급*받은 '카드의정석2 ROUTINE' 카드 수령(사용)등록일과 사용개시일 중 빠른 날을 기준"}}
+  ]
+}

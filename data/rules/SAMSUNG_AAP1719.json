@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "SAMSUNG",
+    "code": "AAP1719",
+    "name": "삼성 iD 달달할인 카드"
+  },
+  "source": {
+    "source_url": "https://www.samsungcard.com/filedownload.do?grpNo=1zPVy1PuFbwGC7xZyM4qtpq3OULHEGfP5Q3uoOJ71tQ%3D&sn=1",
+    "snapshot_id": "9fb4d9cc16b3",
+    "file": "삼성 iD 달달할인 카드 이용안내장.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "pdf",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "pooling_provenance": {
+    "page": 1,
+    "quote": "삼성 iD 달달할인 카드"
+  },
+  "performance": {
+    "checked": false,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 실적 제외 조항을 원문에서 확인하지 못했다(미점검).",
+    "provenance": [],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "500,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 500000,
+      "label": "50만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상 100만원 이상 150만원 이상"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 1000000,
+      "label": "100만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상 100만원 이상 150만원 이상"
+      }
+    },
+    {
+      "id": "T3",
+      "min": 1500000,
+      "label": "150만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상 100만원 이상 150만원 이상"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": []
+  },
+  "limit_groups": {
+    "g_auto_2": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 12000,
+        "T2": 23000,
+        "T3": 35000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "2건 이상 12,000원 23,000원 35,000원"
+      }
+    },
+    "g_auto_3": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 5000,
+        "T2": 10000,
+        "T3": 10000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "렌탈 코웨이, SK매직, 웰스 * 통합 월 할인한도 : 5,000원 기프트/선불카드(포인트, 사이버머니 등 전자지급수단 포함)"
+        },
+        {
+          "page": 2,
+          "quote": "건별 10,000원 이상 정기결제 시 10% 결제일할인 및 할부 이용금액에 해당되지 않음)"
+        }
+      ]
+    },
+    "g_auto_4": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 20000,
+        "T3": 20000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "건별 10,000원 이상 정기결제 시 10% 결제일할인 및 할부 이용금액에 해당되지 않음)"
+        },
+        {
+          "page": 2,
+          "quote": "1건 이하 10,000원 20,000원 30,000원 * 삼성카드의 다른 결제일할인 혜택과 중복 적용되지 않으며,"
+        }
+      ]
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_2",
+      "name": "생활요금 정기결제 10% 결제일할인 (전월 정기결제 2건 이상)",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "* 통합 월 할인한도는 전월 정기결제 이용건수에 따라 차등 적용"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인 5% 할인 멤버십 50% 할인 전월 이용금액 기준"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "requires_recurring": true,
+      "min_amount": 10000,
+      "match": {
+        "merchant_keywords": [
+          "아파트 관리비",
+          "SKT",
+          "KT",
+          "LG U+",
+          "코웨이",
+          "SK매직",
+          "웰스",
+          "생명보험",
+          "손해보험",
+          "자동차보험",
+          "화재보험",
+          "운전자보험",
+          "상해보험",
+          "웅진씽크빅",
+          "교원",
+          "대교",
+          "한솔교육",
+          "초·중·고등학교 학교납입금",
+          "스쿨뱅킹"
+        ]
+      }
+    },
+    {
+      "id": "auto_3",
+      "name": "할인점·주유·의료 5% 결제일할인",
+      "kind": "rate",
+      "limit_group": "g_auto_3",
+      "provenance": {
+        "page": 2,
+        "quote": "할인점·주유·의료 5% 결제일할인"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "이마트",
+          "이마트 트레이더스",
+          "롯데마트",
+          "홈플러스",
+          "SK에너지",
+          "GS칼텍스",
+          "S-OIL",
+          "병·의원",
+          "약국",
+          "동물병원"
+        ]
+      }
+    },
+    {
+      "id": "auto_4",
+      "name": "스트리밍·온라인쇼핑몰 멤버십 정기결제 50% 결제일할인",
+      "kind": "rate",
+      "limit_group": "g_auto_4",
+      "provenance": {
+        "page": 2,
+        "quote": "스트리밍·온라인쇼핑몰 멤버십 정기결제 시 50% 결제일할인"
+      },
+      "rate_bp": 5000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "requires_recurring": true,
+      "match": {
+        "merchant_keywords": [
+          "넷플릭스",
+          "웨이브",
+          "티빙",
+          "왓챠",
+          "멜론",
+          "FLO",
+          "쿠팡 와우 멤버십",
+          "컬리 컬리멤버스"
+        ]
+      }
+    }
+  ],
+  "not_computed": [],
+  "pending": [
+    {
+      "name": "생활요금 정기결제 10% 결제일할인",
+      "reason": "인용문이 약관 원문에 없음",
+      "status": "pending",
+      "value": {
+        "rate_text": "10%",
+        "fixed_won": null,
+        "limits": [
+          {
+            "tier_min_won": 500000,
+            "limit_won": 10000
+          },
+          {
+            "tier_min_won": 1000000,
+            "limit_won": 20000
+          },
+          {
+            "tier_min_won": 1500000,
+            "limit_won": 30000
+          }
+        ]
+      },
+      "quote": "아파트 관리비·이동통신·렌탈·보험·학습지·학교납입금 할인점·주유·의료 5% 결제일할인 스트리밍·온라인쇼핑몰 멤버십 정기결제 시 50% 결제일할인 (인앱 결제) 제외\n건별 10,000원 이상 정기결제 시 10% 결제일할인"
+    }
+  ],
+  "extracted_at": "2026-11-05T14:33:07"
+}

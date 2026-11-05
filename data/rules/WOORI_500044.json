@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "WOORI",
+    "code": "500044",
+    "name": "카드의정석2 SUPER"
+  },
+  "source": {
+    "source_url": "https://pc.wooricard.com/dcpc/yh1/cct/cct11/prdntc/H1CCT211S09.do?crdPrdCd=500044",
+    "snapshot_id": "7179588e8c51",
+    "file": "[상품안내장] 카드의정석2 SUPER(2026.04).pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "ocr",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "pooling_provenance": {
+    "page": 1,
+    "quote": "가족카드는 발급 불가합니다."
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 2,
+        "quote": "※ 전월 실적 조건 없음"
+      },
+      {
+        "page": 2,
+        "quote": "※ 전월 실적 조건 없음"
+      }
+    ],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "all",
+      "min": 0,
+      "label": "전월 실적 조건 없음"
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "무이자할부",
+      "부분무이자할부",
+      "정부지원금",
+      "보육료",
+      "유치원보조비",
+      "바우처",
+      "아파트 관리비",
+      "관리비",
+      "공공임대료",
+      "전북개발공사",
+      "부동산임대료",
+      "학교 납부금",
+      "초·중·고",
+      "대학 등록금",
+      "대학원 등록금",
+      "국세",
+      "지방세",
+      "관세",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "전기요금",
+      "우편요금",
+      "도시가스요금",
+      "상하수도요금",
+      "과태료",
+      "범칙금",
+      "벌금",
+      "여권발급비용",
+      "지방자치단체",
+      "상품권",
+      "카카오톡 선물하기",
+      "모바일 상품권",
+      "선불카드",
+      "사이버머니",
+      "게임머니",
+      "기프트카드",
+      "교통카드",
+      "시외버스",
+      "고속버스",
+      "신차구매",
+      "의약품 전용몰",
+      "제약회사",
+      "수수료",
+      "연회비",
+      "단기카드대출",
+      "현금서비스",
+      "장기카드대출",
+      "카드론",
+      "매출취소"
+    ],
+    "provenance": {
+      "page": 2,
+      "quote": "할인 제외 : 무이자할부금액(부분무이자할부금액 포함), 정부지원금(보육료, 유치원보조비, 바우처 이용금액 등), 아파트 관리비"
+    }
+  },
+  "limit_groups": {
+    "g_auto_1": {
+      "limit_by_tier": {
+        "all": 100000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "국내/해외 가맹점 | 2.0% | 10만원"
+      }
+    }
+  },
+  "lines": [],
+  "base_line": {
+    "id": "auto_1",
+    "name": "국내외 가맹점 2.0% 청구할인",
+    "kind": "rate",
+    "limit_group": "g_auto_1",
+    "provenance": {
+      "page": 2,
+      "quote": "국내/해외 가맹점 | 2.0% | 10만원"
+    },
+    "rate_bp": 200
+  },
+  "not_computed": [
+    {
+      "name": "2~3개월 무이자 할부 서비스",
+      "reason": "할인 금액이 아닌 무이자 할부 제공 서비스로, 월 단위 할인 금액 계산에 포함할 수 없음",
+      "provenance": {
+        "page": 2,
+        "quote": "국내 가맹점 | 2~3개월 | 5만원 이상 결제 시"
+      }
+    },
+    {
+      "name": "해외수수료 면제 서비스 (국제브랜드사 수수료 1.0% + 해외이용 수수료 0.3%)",
+      "reason": "수수료 면제 서비스로 정액·정률 할인 계산이 불가하며, 월 단위 할인 한도 산정 대상이 아님",
+      "provenance": {
+        "page": 2,
+        "quote": "국제브랜드사 수수료 | 1.0% | 면제"
+      }
+    },
+    {
+      "name": "Mastercard Platinum 서비스",
+      "reason": "국제브랜드사 제공 부가서비스로 구체적인 할인·적립 금액 산정 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "본 상품은 Mastercard 브랜드 발급 시 Mastercard에서 제공하는 Mastercard Platinum 서비스가 제공됩니다."
+      }
+    }
+  ],
+  "pending": [],
+  "extracted_at": "2026-11-05T10:01:31"
+}

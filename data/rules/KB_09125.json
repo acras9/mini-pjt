@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "KB",
+    "code": "09125",
+    "name": "HERITAGE Smart(헤리티지 스마트) 할인형"
+  },
+  "source": {
+    "source_url": "https://img2.kbcard.com/obj/card/download/09125__prdctOpmn_20241129.pdf",
+    "snapshot_id": "781e97fdd352",
+    "file": "09125__prdctOpmn_20241129.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "ocr",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "performance": {
+    "checked": false,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 실적 제외 조항을 원문에서 확인하지 못했다(미점검).",
+    "provenance": [],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "400,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 400000,
+      "label": "40만원 이상 80만원 미만",
+      "provenance": {
+        "page": 8,
+        "quote": "40만 이상~ 80만원 미만"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 800000,
+      "label": "80만원 이상 150만원 미만",
+      "provenance": {
+        "page": 8,
+        "quote": "80만 이상~ 150만원 미만"
+      }
+    },
+    {
+      "id": "T3",
+      "min": 1500000,
+      "label": "150만원 이상",
+      "provenance": {
+        "page": 8,
+        "quote": "150만원 이상"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "무이자할부",
+      "현금서비스",
+      "카드론",
+      "국세",
+      "지방세",
+      "전기",
+      "수도",
+      "관리비",
+      "보육료",
+      "유치원보조비",
+      "바우처",
+      "수업료",
+      "교육비",
+      "현장학습비",
+      "급식비",
+      "대학등록금",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "수수료",
+      "연체료",
+      "연회비",
+      "상품권",
+      "선불카드",
+      "선불전자지급수단",
+      "신차구매청구",
+      "해외이용전표",
+      "취소금액"
+    ],
+    "provenance": {
+      "page": 7,
+      "quote": "무이자할부 이용금액, 단기카드대출(현금서비스), 장기카드대출(카드론), 국세,\n지방세, 각종 공과금(전기/수도 등), 아파트관리비, 정부지원금(보육료/유치원보\n조비/바우처이용금액 등), 초·중·고 학교 납입금 전체(수업료/교육비/현장학습비/\n급식비), 대학(대학원)등록금, 4대 사회보험료(건강/연금/고용/산재), 각종 수수료\n및 이자, 연체료, 연회비, 상품권 및 선불카드(선불전자지급수단 포함) 구입·충전금\n액, 신차구매청구(환급) 할인 전표 전체, 해외이용 전표 전체, 취소금액"
+    }
+  },
+  "limit_groups": {
+    "g_auto_3": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 30000,
+        "T3": 50000
+      },
+      "provenance": {
+        "page": 8,
+        "quote": "쇼핑 백화점, 인터넷 면세점, 온라인 명품, 택시 5% 1만원 3만원 5만원"
+      }
+    },
+    "g_auto_4": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 30000,
+        "T3": 50000
+      },
+      "provenance": {
+        "page": 8,
+        "quote": "스포츠 스포츠, 주유, 방문세차 5% 1만원 3만원 5만원"
+      }
+    },
+    "g_auto_5": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 30000,
+        "T3": 50000
+      },
+      "provenance": {
+        "page": 8,
+        "quote": "학원 학원, 편의점, 커피전문점 5% 1만원 3만원 5만원"
+      }
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_2",
+      "name": "해외 가맹점 3% 청구할인",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 7,
+        "quote": "해외 가맹점 3% 청구할인"
+      },
+      "rate_bp": 300,
+      "match": {
+        "merchant_keywords": [
+          "해외 가맹점"
+        ]
+      }
+    },
+    {
+      "id": "auto_3",
+      "name": "쇼핑 영역 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_3",
+      "provenance": {
+        "page": 8,
+        "quote": "쇼핑 백화점, 인터넷 면세점, 온라인 명품, 택시 5% 1만원 3만원 5만원"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "롯데백화점",
+          "현대백화점",
+          "신세계백화점",
+          "갤러리아백화점",
+          "롯데면세점",
+          "신라면세점",
+          "현대면세점",
+          "신세계면세점",
+          "발란",
+          "머스트잇",
+          "트렌비",
+          "택시"
+        ]
+      }
+    },
+    {
+      "id": "auto_4",
+      "name": "스포츠 영역 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_4",
+      "provenance": {
+        "page": 8,
+        "quote": "스포츠 스포츠, 주유, 방문세차 5% 1만원 3만원 5만원"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "골프장",
+          "골프연습장",
+          "테니스",
+          "볼링",
+          "스키",
+          "수영",
+          "종합스포츠센터",
+          "당구",
+          "요가",
+          "GS주유소",
+          "SK주유소",
+          "인스타워시"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "학원 영역 5% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_5",
+      "provenance": {
+        "page": 8,
+        "quote": "학원 학원, 편의점, 커피전문점 5% 1만원 3만원 5만원"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "기술/사무/가정계학원",
+          "예체능계학원",
+          "문리계학원",
+          "외국어학원",
+          "자동차학원",
+          "기타학원",
+          "편의점",
+          "커피/음료 전문점",
+          "스타벅스"
+        ]
+      }
+    }
+  ],
+  "base_line": {
+    "id": "auto_1",
+    "name": "국내 가맹점 1% 청구할인",
+    "kind": "rate",
+    "limit_group": null,
+    "provenance": {
+      "page": 7,
+      "quote": "국내 가맹점 1% 청구할인"
+    },
+    "rate_bp": 100
+  },
+  "not_computed": [
+    {
+      "name": "특급호텔 할인 쿠폰 (연 1회, 15만원)",
+      "reason": "연 1회 제공되는 쿠폰으로 월 단위 할인 계산에 포함할 수 없음",
+      "provenance": {
+        "page": 5,
+        "quote": "특 급호텔 15만원 할인 쿠폰 제공"
+      }
+    },
+    {
+      "name": "항공권 할인 쿠폰 (연 1회, 15만원)",
+      "reason": "연 1회 제공되는 쿠폰으로 월 단위 할인 계산에 포함할 수 없음",
+      "provenance": {
+        "page": 6,
+        "quote": "항 공권 15만원 할인 쿠폰 제공"
+      }
+    },
+    {
+      "name": "공연/전시 할인 쿠폰 (연 1회, 15만원)",
+      "reason": "연 1회 제공되는 쿠폰으로 월 단위 할인 계산에 포함할 수 없음",
+      "provenance": {
+        "page": 6,
+        "quote": "공 연/전시 15만원 할인 쿠폰 제공"
+      }
+    },
+    {
+      "name": "KB국민은행 송금수수료 면제",
+      "reason": "수수료 면제 금융서비스로 월 단위 할인 금액 계산 불가",
+      "provenance": {
+        "page": 9,
+        "quote": "KB국민은행/타 은행 송금수수료"
+      }
+    },
+    {
+      "name": "외환 환전 현금매매율 1% 감면",
+      "reason": "환전 시 수수료 감면 서비스로 월 단위 할인 금액 계산 불가",
+      "provenance": {
+        "page": 9,
+        "quote": "환 전 시 현금매매율의 1% 감면"
+      }
+    },
+    {
+      "name": "해외 송금 수수료 면제",
+      "reason": "수수료 면제 금융서비스로 월 단위 할인 금액 계산 불가",
+      "provenance": {
+        "page": 9,
+        "quote": "해 외 송금 수수료 면제"
+      }
+    },
+    {
+      "name": "문자알림(SMS) 서비스 무료 제공",
+      "reason": "SMS 서비스 무료 제공으로 월 단위 할인 금액 계산 불가",
+      "provenance": {
+        "page": 9,
+        "quote": "문 자 알림 서비스는 회원님의 휴대폰으로 카드 이용 관련 정보를 실시간 제공하는\n서비스로서 카드 발급 시 또는 카드 발급 이후에도 KB국민카드 영업점 및 고객센터\n로 요청하시면 무료로 제공합니다."
+      }
+    }
+  ],
+  "pending": [],
+  "extracted_at": "2026-11-05T15:40:46"
+}

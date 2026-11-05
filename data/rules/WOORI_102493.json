@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "WOORI",
+    "code": "102493",
+    "name": "카드의정석 위비할인+"
+  },
+  "source": {
+    "source_url": "https://pc.wooricard.com/dcpc/yh1/cct/cct11/prdntc/H1CCT211S09.do?crdPrdCd=102493",
+    "snapshot_id": "783becfe9f19",
+    "file": "2.상품안내장_카드의정석 위비할인+.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "pdf",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": true,
+    "exclude_merchant_keywords": [
+      "단기카드대출",
+      "현금서비스",
+      "장기카드대출",
+      "카드론",
+      "수수료",
+      "연회비",
+      "무이자할부",
+      "할인받은 매출의 50%"
+    ],
+    "discounted_sales_excluded_bp": 10000,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 2,
+        "quote": "할인받은 매출의 50%, 무이자할부금액은 전월 국내 가맹점 실적 산정 제외"
+      },
+      {
+        "page": 2,
+        "quote": "할인받은 매출의 50%, 무이자할부금액은 전월 국내 가맹점 실적 산정 제외 예) 대형할인점에서 20만원 결제로 할인된 매출의 경우 10만원까지만 전월 실적으로 인정"
+      }
+    ],
+    "traps": [
+      "할인받은 매출은 전월 실적에서 제외됩니다"
+    ]
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "300,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 300000,
+      "label": "30만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "30만원 이상 4천원 3천원 3천원 1만원"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 600000,
+      "label": "60만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "60만원 이상 8천원 6천원 6천원 2만원"
+      }
+    },
+    {
+      "id": "T3",
+      "min": 1200000,
+      "label": "120만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "120만원 이상 16천원 12천원 12천원 4만원"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "무이자할부",
+      "결제건당 1만원 미만",
+      "상품권",
+      "기프트카드",
+      "선불카드",
+      "배달앱",
+      "예매 대행사이트",
+      "커피브랜드 상품권",
+      "커피브랜드 선불카드",
+      "백화점 내 매장",
+      "대형할인점 내 매장",
+      "미군부대 매장",
+      "이마트에브리데이",
+      "홈플러스익스프레스",
+      "인터넷 결합상품",
+      "유선전화 결합상품",
+      "LPG충전소",
+      "Google Store",
+      "Apple Store",
+      "One Store",
+      "온라인결제(대형할인점/백화점/홈쇼핑)"
+    ],
+    "provenance": {
+      "page": 2,
+      "quote": "무이자할부금액, 결제건당 1만원 미만금액, 상품권/기프트카드/선불카드 구매 및 충전금액은 할인 제외"
+    }
+  },
+  "limit_groups": {
+    "g_auto_4": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 300000,
+        "T2": 300000,
+        "T3": 300000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "통합 1일 1회, 주유매출건당 10만원, 월 30만원 한도"
+      }
+    },
+    "g_auto_5": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 300000,
+        "T3": 300000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "통합 1일 1회, 주유매출건당 10만원, 월 30만원 한도"
+      }
+    },
+    "g_auto_7": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 2000,
+        "T2": 2000,
+        "T3": 2000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "치킨/피자 통합 월 1회, 연 6회, 건당 2천원까지 할인"
+      }
+    },
+    "g_auto_9": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 50000,
+        "T2": 50000,
+        "T3": 50000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "월 1회, 연 12회, 1회 결제금액 5만원 한도"
+      }
+    },
+    "g_auto_10": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 50000,
+        "T2": 50000,
+        "T3": 50000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "월 1회, 연 12회, 1회 결제금액 5만원 한도"
+      }
+    },
+    "g_auto_11": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 10000,
+        "T3": 10000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "월 1회, 연 12회, 1회 결제금액 1만원 한도"
+      }
+    },
+    "g_auto_12": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 2000,
+        "T2": 2000,
+        "T3": 2000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "통합 월 1회, 연 12회, 건당 2천원까지 할인"
+      }
+    },
+    "g_auto_13": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 300000,
+        "T2": 300000,
+        "T3": 300000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "(월 결제금액 30만원 한도)"
+      }
+    },
+    "g_auto_14": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 5000,
+        "T2": 5000,
+        "T3": 5000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "일 1회, 월 5천원까지 할인"
+      }
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_4",
+      "name": "주유 리터당 60원 청구할인(전월 30만원 이상)",
+      "kind": "rate",
+      "limit_group": "g_auto_4",
+      "provenance": {
+        "page": 2,
+        "quote": "주유 : H D현대오일뱅크, 에쓰오일 리터당 60원 청구할인"
+      },
+      "rate_bp": 6000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "HD현대오일뱅크",
+          "에쓰오일"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "주유 리터당 80원 청구할인(전월 60만원 이상)",
+      "kind": "rate",
+      "limit_group": "g_auto_5",
+      "provenance": {
+        "page": 2,
+        "quote": "(전월 60만원 이상 시 리터당 80원 청구할인)"
+      },
+      "rate_bp": 8000,
+      "available_tiers": [
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "HD현대오일뱅크",
+          "에쓰오일"
+        ]
+      }
+    },
+    {
+      "id": "auto_7",
+      "name": "치킨·피자 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_7",
+      "provenance": {
+        "page": 2,
+        "quote": "치킨·피자 10% 청구할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "match": {
+        "merchant_keywords": [
+          "교촌치킨",
+          "BBQ치킨",
+          "오븐에빠진닭",
+          "네네치킨",
+          "굽네치킨",
+          "호식이두마리치킨",
+          "BHC치킨",
+          "멕시카나치킨",
+          "또래오래치킨",
+          "또봉이통닭",
+          "도미노피자",
+          "미스터피자",
+          "파파존스",
+          "피자에땅"
+        ]
+      }
+    },
+    {
+      "id": "auto_8",
+      "name": "전국 영화관 3,000원 청구할인(12,000원 이상 결제 시)",
+      "kind": "fixed",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "전국 영화관 12,000원 이상 결제 시 3,000원 청구할인"
+      },
+      "fixed_won": 3000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "min_amount": 12000,
+      "match": {
+        "merchant_keywords": [
+          "영화관"
+        ]
+      }
+    },
+    {
+      "id": "auto_9",
+      "name": "HANGAME 한코인 충전 20% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_9",
+      "provenance": {
+        "page": 2,
+        "quote": "HANGAME 한코인 충전 결제 시 20% 청구할인"
+      },
+      "rate_bp": 2000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "match": {
+        "merchant_keywords": [
+          "HANGAME",
+          "한게임"
+        ]
+      }
+    },
+    {
+      "id": "auto_10",
+      "name": "티켓링크 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_10",
+      "provenance": {
+        "page": 2,
+        "quote": "티켓링크 티켓링크 10% 청구할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "match": {
+        "merchant_keywords": [
+          "티켓링크"
+        ]
+      }
+    },
+    {
+      "id": "auto_11",
+      "name": "코미코 20% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_11",
+      "provenance": {
+        "page": 2,
+        "quote": "comico 코미코 20% 청구할인"
+      },
+      "rate_bp": 2000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "match": {
+        "merchant_keywords": [
+          "comico",
+          "코미코"
+        ]
+      }
+    },
+    {
+      "id": "auto_12",
+      "name": "커피전문점 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_12",
+      "provenance": {
+        "page": 2,
+        "quote": "커피전문점 10% 청구할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "match": {
+        "merchant_keywords": [
+          "스타벅스",
+          "투썸플레이스",
+          "이디야",
+          "폴바셋"
+        ]
+      }
+    },
+    {
+      "id": "auto_13",
+      "name": "PAYCO 페이코 포인트 1% 적립",
+      "kind": "rate",
+      "limit_group": "g_auto_13",
+      "provenance": {
+        "page": 2,
+        "quote": "PAYCO 페이코 포인트 1% 적립"
+      },
+      "rate_bp": 100,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "PAYCO",
+          "페이코"
+        ]
+      }
+    },
+    {
+      "id": "auto_14",
+      "name": "전기차 충전요금 20% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_14",
+      "provenance": {
+        "page": 2,
+        "quote": "전기차 충전요금 20% 청구할인"
+      },
+      "rate_bp": 2000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "환경부",
+          "한국자동차환경협회",
+          "전기차충전"
+        ]
+      }
+    },
+    {
+      "id": "auto_15",
+      "name": "자동납부 매월 포인트 적립(25만원 이상 시 2,500점)",
+      "kind": "fixed",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "매월 자동납부 금액 합산 25만원 이상 시 2,500점 적립"
+      },
+      "fixed_won": 2500,
+      "requires_recurring": true,
+      "min_amount": 250000,
+      "match": {
+        "merchant_keywords": [
+          "SKT",
+          "KT",
+          "LGU+",
+          "아파트관리비",
+          "렌탈",
+          "코웨이",
+          "청호나이스",
+          "쿠쿠",
+          "교원",
+          "SK매직",
+          "넥센타이어"
+        ]
+      }
+    },
+    {
+      "id": "auto_16",
+      "name": "주요 놀이공원 자유이용권 50% 할인",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "주요 놀이공원 자유이용권 50% 할인"
+      },
+      "rate_bp": 5000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "max_count_per_month": 1,
+      "owner_types": [
+        "본인"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "롯데월드",
+          "에버랜드",
+          "경주월드",
+          "통도환타지아",
+          "이월드"
+        ]
+      }
+    }
+  ],
+  "not_computed": [
+    {
+      "name": "치킨·피자 연 6회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 6회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "치킨/피자 통합 월 1회, 연 6회, 건당 2천원까지 할인"
+      }
+    },
+    {
+      "name": "영화관 연 6회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 6회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "통합 월 1회, 연 6회"
+      }
+    },
+    {
+      "name": "HANGAME 한코인 연 12회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 12회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "월 1회, 연 12회, 1회 결제금액 5만원 한도"
+      }
+    },
+    {
+      "name": "티켓링크 연 12회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 12회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "월 1회, 연 12회, 1회 결제금액 5만원 한도"
+      }
+    },
+    {
+      "name": "코미코 연 12회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 12회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "월 1회, 연 12회, 1회 결제금액 1만원 한도"
+      }
+    },
+    {
+      "name": "커피전문점 연 12회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 12회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "통합 월 1회, 연 12회, 건당 2천원까지 할인"
+      }
+    },
+    {
+      "name": "놀이공원 연 3회 한도",
+      "reason": "월 1회 한도는 lines에 반영했으나 연간 누적 횟수(연 3회)는 월 단위 계산에 포함 불가",
+      "provenance": {
+        "page": 2,
+        "quote": "통합 월 1회, 연 3회, 본인한정"
+      }
+    }
+  ],
+  "pending": [
+    {
+      "name": "쇼핑 영역(대형할인점·백화점·온라인쇼핑/홈쇼핑) 7% 청구할인",
+      "reason": "한도 금액이 인용문에 없음",
+      "status": "pending",
+      "value": {
+        "rate_text": "7%",
+        "fixed_won": null,
+        "limits": [
+          {
+            "tier_min_won": 300000,
+            "limit_won": 4000
+          },
+          {
+            "tier_min_won": 600000,
+            "limit_won": 8000
+          },
+          {
+            "tier_min_won": 1200000,
+            "limit_won": 16000
+          }
+        ]
+      },
+      "quote": "각 영역별 주요 9대 업종에서 7% 청구할인"
+    },
+    {
+      "name": "가족 영역(학원·병의원·보험) 7% 청구할인",
+      "reason": "한도 금액이 인용문에 없음",
+      "status": "pending",
+      "value": {
+        "rate_text": "7%",
+        "fixed_won": null,
+        "limits": [
+          {
+            "tier_min_won": 300000,
+            "limit_won": 3000
+          },
+          {
+            "tier_min_won": 600000,
+            "limit_won": 6000
+          },
+          {
+            "tier_min_won": 1200000,
+            "limit_won": 12000
+          }
+        ]
+      },
+      "quote": "각 영역별 주요 9대 업종에서 7% 청구할인"
+    },
+    {
+      "name": "생활 영역(대중교통·주유·이동통신) 7% 청구할인",
+      "reason": "한도 금액이 인용문에 없음",
+      "status": "pending",
+      "value": {
+        "rate_text": "7%",
+        "fixed_won": null,
+        "limits": [
+          {
+            "tier_min_won": 300000,
+            "limit_won": 3000
+          },
+          {
+            "tier_min_won": 600000,
+            "limit_won": 6000
+          },
+          {
+            "tier_min_won": 1200000,
+            "limit_won": 12000
+          }
+        ]
+      },
+      "quote": "각 영역별 주요 9대 업종에서 7% 청구할인"
+    },
+    {
+      "name": "Two-in-One 결제서비스(체크매출) 0.3% 청구할인",
+      "reason": "대상 가맹점 키워드가 없음",
+      "status": "pending"
+    }
+  ],
+  "extracted_at": "2026-11-05T11:01:24"
+}

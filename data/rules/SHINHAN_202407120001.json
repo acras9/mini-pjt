@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "SHINHAN",
+    "code": "202407120001",
+    "name": "신한카드 Edu Plan+"
+  },
+  "source": {
+    "source_url": "https://www.shinhancard.com/pconts/html/card/apply/credit/1228598_2207.html",
+    "snapshot_id": "320ffdd9b2cf",
+    "file": "상품안내페이지_202407120001.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "homepage",
+  "benefit_unit": "적립",
+  "pooling": true,
+  "pooling_provenance": {
+    "page": 4,
+    "quote": "본인카드와 가족카드의 전월 이용금액, 월별 캐시백 및 할인 한도, 캐시백금액 및 할인금액은 합산 적용됩니다."
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [
+      "일반전문학원",
+      "학습지",
+      "유치원",
+      "학원비 PG",
+      "현금서비스",
+      "카드론",
+      "연회비",
+      "수수료",
+      "기프트카드",
+      "선불카드",
+      "상품권",
+      "선불전자지급수단",
+      "국세",
+      "지방세",
+      "수도요금",
+      "국민연금",
+      "건강보험",
+      "고용보험",
+      "산재보험",
+      "아파트관리비",
+      "도시가스",
+      "전기요금",
+      "TV수신료",
+      "유치원납입금",
+      "초중고납입금",
+      "스쿨뱅킹",
+      "대학등록금",
+      "지방세외수입",
+      "환경개선부담금",
+      "거래취소",
+      "신차구입",
+      "이동통신",
+      "인터넷",
+      "유선전화",
+      "제약",
+      "약국",
+      "철도"
+    ],
+    "discounted_sales_excluded_bp": 10000,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 4,
+        "quote": "국세, 지방세, 수도요금, 4대보험(국민연금/건강보험/고용보험/산재보험)\n아파트관리비, 도시가스, 전기요금, TV수신료"
+      },
+      {
+        "page": 4,
+        "quote": "신한카드 Edu Plan+로 신한카드 할인 서비스(이벤트 포함)를 적용 받은 모든 거래(해당 거래금액 전체)"
+      }
+    ],
+    "traps": [
+      "할인받은 매출은 전월 실적에서 제외됩니다"
+    ]
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "300,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 300000,
+      "label": "30만원 이상 50만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "30만원 이상\n3% 1만원\n50만원 미만"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 500000,
+      "label": "50만원 이상 100만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상\n5% 2만원\n100만원 미만"
+      }
+    },
+    {
+      "id": "T3",
+      "min": 1000000,
+      "label": "100만원 이상 200만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "100만원 이상\n7% 5만원\n200만원 미만"
+      }
+    },
+    {
+      "id": "T4",
+      "min": 2000000,
+      "label": "200만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "200만원 이상 10% 9만원"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "수수료",
+      "할부수수료",
+      "연체이자",
+      "기프트카드",
+      "선불카드",
+      "무이자할부",
+      "슬림할부",
+      "상품권",
+      "선불전자지급수단",
+      "거래취소",
+      "신한카드 할인 서비스"
+    ],
+    "provenance": {
+      "page": 3,
+      "quote": "캐시백 및 할인 제외 대상은 아래와 같습니다.\n각종 수수료/이자(할부수수료, 연체이자 등)\n기프트카드/선불카드 구매·충전금액"
+    }
+  },
+  "limit_groups": {
+    "g_auto_1": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 10000,
+        "T3": 10000,
+        "T4": 10000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "30만원 이상\n3% 1만원\n50만원 미만"
+      }
+    },
+    "g_auto_2": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 20000,
+        "T3": 20000,
+        "T4": 20000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상\n5% 2만원\n100만원 미만"
+      }
+    },
+    "g_auto_3": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 0,
+        "T3": 50000,
+        "T4": 50000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "100만원 이상\n7% 5만원\n200만원 미만"
+      }
+    },
+    "g_auto_4": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 0,
+        "T3": 0,
+        "T4": 90000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "200만원 이상 10% 9만원"
+      }
+    },
+    "g_auto_5": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 5000,
+        "T2": 5000,
+        "T3": 5000,
+        "T4": 5000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "월 학원비 결제 건수 월 캐시백 금액\n3~4건 5천원"
+      }
+    },
+    "g_auto_6": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 10000,
+        "T2": 10000,
+        "T3": 10000,
+        "T4": 10000
+      },
+      "provenance": {
+        "page": 2,
+        "quote": "5건 이상 1만원"
+      }
+    },
+    "g_auto_7": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 2000,
+        "T3": 2000,
+        "T4": 2000
+      },
+      "provenance": {
+        "page": 3,
+        "quote": "3대 할인점 이용금액 합산 월 20만원까지(캐시백 금액 기준 월 2천원까지) 캐시백 됩니다."
+      }
+    },
+    "g_auto_8": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 2000,
+        "T3": 2000,
+        "T4": 2000
+      },
+      "provenance": {
+        "page": 3,
+        "quote": "의료 및 정기결제 이용금액 합산 월 20만원까지(캐시백 금액 기준 월 2천원까지) 캐시백 됩니다."
+      }
+    },
+    "g_auto_9": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 0,
+        "T2": 7000,
+        "T3": 7000,
+        "T4": 7000
+      },
+      "provenance": {
+        "page": 3,
+        "quote": "전월 이용 금액(일시불 + 할부) 영화 할인 금액\n50만원 이상 7천원"
+      }
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_1",
+      "name": "학원비 기본 캐시백 3% (30만원 이상 50만원 미만)",
+      "kind": "rate",
+      "limit_group": "g_auto_1",
+      "provenance": {
+        "page": 2,
+        "quote": "30만원 이상\n3% 1만원\n50만원 미만"
+      },
+      "rate_bp": 300,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "일반전문학원",
+          "학습지",
+          "유치원",
+          "학원비 PG"
+        ]
+      }
+    },
+    {
+      "id": "auto_2",
+      "name": "학원비 기본 캐시백 5% (50만원 이상 100만원 미만)",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상\n5% 2만원\n100만원 미만"
+      },
+      "rate_bp": 500,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "일반전문학원",
+          "학습지",
+          "유치원",
+          "학원비 PG"
+        ]
+      }
+    },
+    {
+      "id": "auto_3",
+      "name": "학원비 기본 캐시백 7% (100만원 이상 200만원 미만)",
+      "kind": "rate",
+      "limit_group": "g_auto_3",
+      "provenance": {
+        "page": 2,
+        "quote": "100만원 이상\n7% 5만원\n200만원 미만"
+      },
+      "rate_bp": 700,
+      "available_tiers": [
+        "T3",
+        "T4"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "일반전문학원",
+          "학습지",
+          "유치원",
+          "학원비 PG"
+        ]
+      }
+    },
+    {
+      "id": "auto_4",
+      "name": "학원비 기본 캐시백 10% (200만원 이상)",
+      "kind": "rate",
+      "limit_group": "g_auto_4",
+      "provenance": {
+        "page": 2,
+        "quote": "200만원 이상 10% 9만원"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T4"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "일반전문학원",
+          "학습지",
+          "유치원",
+          "학원비 PG"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "학원비 추가 캐시백 (월 3~4건 5천원)",
+      "kind": "fixed",
+      "limit_group": "g_auto_5",
+      "provenance": {
+        "page": 2,
+        "quote": "월 학원비 결제 건수 월 캐시백 금액\n3~4건 5천원"
+      },
+      "fixed_won": 5000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "min_amount": 200000,
+      "match": {
+        "merchant_keywords": [
+          "일반전문학원",
+          "학습지",
+          "유치원",
+          "학원비 PG"
+        ]
+      }
+    },
+    {
+      "id": "auto_6",
+      "name": "학원비 추가 캐시백 (월 5건 이상 1만원)",
+      "kind": "fixed",
+      "limit_group": "g_auto_6",
+      "provenance": {
+        "page": 2,
+        "quote": "5건 이상 1만원"
+      },
+      "fixed_won": 10000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "min_amount": 200000,
+      "match": {
+        "merchant_keywords": [
+          "일반전문학원",
+          "학습지",
+          "유치원",
+          "학원비 PG"
+        ]
+      }
+    },
+    {
+      "id": "auto_7",
+      "name": "3대 할인점 1% 캐시백",
+      "kind": "rate",
+      "limit_group": "g_auto_7",
+      "provenance": {
+        "page": 2,
+        "quote": "3대 할인점: 홈플러스, 이마트, 롯데마트 오프라인 매장"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "3대 할인점 1% 캐시백"
+      },
+      "rate_bp": 100,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "홈플러스",
+          "이마트",
+          "롯데마트"
+        ]
+      }
+    },
+    {
+      "id": "auto_8",
+      "name": "의료·정기결제 1% 캐시백",
+      "kind": "rate",
+      "limit_group": "g_auto_8",
+      "provenance": {
+        "page": 3,
+        "quote": "의료: 병원(종합병원, 개인병원, 치과병원, 응급실 운영 병원, 한의원), 약국 가맹점 업종"
+      },
+      "rate_provenance": {
+        "page": 3,
+        "quote": "의료·정기결제 1% 캐시백"
+      },
+      "rate_bp": 100,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "병원",
+          "종합병원",
+          "개인병원",
+          "치과병원",
+          "응급실",
+          "한의원",
+          "약국",
+          "도시가스",
+          "전기요금",
+          "SKT",
+          "KT",
+          "LG U+"
+        ]
+      }
+    },
+    {
+      "id": "auto_9",
+      "name": "메가박스 영화 온라인 예매 7천원 즉시 할인",
+      "kind": "fixed",
+      "limit_group": "g_auto_9",
+      "provenance": {
+        "page": 3,
+        "quote": "메가박스 영화 온라인 예매 7천원 즉시 할인\n월 1회 할인"
+      },
+      "fixed_won": 7000,
+      "available_tiers": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "max_count_per_month": 1,
+      "min_amount": 7000,
+      "match": {
+        "merchant_keywords": [
+          "메가박스"
+        ]
+      }
+    }
+  ],
+  "not_computed": [
+    {
+      "name": "Mastercard 플래티늄 서비스",
+      "reason": "국제브랜드사 제공 서비스로 월 단위 할인 금액 산정 불가",
+      "provenance": {
+        "page": 1,
+        "quote": "Platinum 서비스 국제 브랜드사 서비스(플래티늄 등급 선택 시 제공)"
+      }
+    }
+  ],
+  "pending": [],
+  "extracted_at": "2026-11-05T16:09:44"
+}

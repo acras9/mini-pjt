@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "HYUNDAI",
+    "code": "142712",
+    "name": "현대카드Z family Edition2"
+  },
+  "source": {
+    "source_url": "https://www.hyundaicard.com/upload/card/%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81_Z%20family%20Ed2_260330.pdf",
+    "snapshot_id": "06089be0723c",
+    "file": "가이드북_Z family Ed2_260330.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "ocr",
+  "benefit_unit": "청구할인",
+  "pooling": true,
+  "pooling_provenance": {
+    "page": 6,
+    "quote": "전월 이용 금액은 전월 1일 ~ 말일까지 현대카드Z family Edition2(본인+가족 카드) 일시불 및 할부 이용 금액임"
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": true,
+    "exclude_merchant_keywords": [
+      "카드론",
+      "현금서비스",
+      "연회비",
+      "수수료",
+      "국제브랜드 수수료",
+      "해외서비스 수수료",
+      "국세",
+      "관세",
+      "지방세",
+      "지방세외수입",
+      "상하수도 요금",
+      "벌과금",
+      "과태료",
+      "인지세",
+      "송달료",
+      "민원 발급 수수료",
+      "전기 요금",
+      "도시가스 요금",
+      "아파트 관리비",
+      "자동납부서비스 이용 수수료",
+      "학교납입금",
+      "사립유치원 교육비",
+      "대학",
+      "대학원 등록금",
+      "상품권",
+      "유가증권",
+      "선불 카드",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "장애인 고용 부담금",
+      "고속도로 통행 요금",
+      "후불하이패스",
+      "고속버스",
+      "무이자 할부"
+    ],
+    "discounted_sales_excluded_bp": 10000,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 6,
+        "quote": "장기카드대출(카드론), 단기카드대출(현금서비스), 연회비, 제수수료, 이자\n· 국제브랜드 수수료 및 해외서비스 수수료\n· 공과금 납부액(국세, 관세, 지방세, 지방세외수입, 상하수도 요금, 벌과금, 과태료, 인지세, 송달료, 민원 발급 수수료 등 국가 또는 공공단체가 부과하는 부담금)\n· 전기 요금, 도시가스 요금, 아파트 관리비, 자동납부서비스 이용 수수료\n· 초·중·고교 학교납입금, 사립유치원 교육비, 대학·대학원 등록금 납부 결제건\n· 상품권 등 현금성 유가증권 구매 및 선불 카드 구매·충전 금액\n· 건강보험, 국민연금, 고용보험, 산재보험 및 장애인 고용 부담금\n· 고속도로 통행 요금, 후불하이패스 카드 이용 금액, 고속버스(차내 단말기 및 고속버스 앱 결제 포함)\n· 무이자 할부 이용 금액\n· 현대카드Z family Edition2 이용 금액에서 할인 혜택이 적용된 결제 건의 전체 이용 금액"
+      },
+      {
+        "page": 6,
+        "quote": "현대카드Z family Edition2 이용 금액에서 할인 혜택이 적용된 결제 건의 전체 이용 금액"
+      }
+    ],
+    "traps": [
+      "할인받은 매출은 전월 실적에서 제외됩니다"
+    ]
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "500,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 500000,
+      "label": "전월 이용 금액 50만원 이상",
+      "provenance": {
+        "page": 4,
+        "quote": "전월 이용 금액 50만원 이상 시 월 6천원 할인"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 1000000,
+      "label": "전월 이용 금액 100만원 이상",
+      "provenance": {
+        "page": 4,
+        "quote": "전월 이용 금액 100만원 이상 시 월 1만원 할인"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "카드론",
+      "현금서비스",
+      "연회비",
+      "수수료",
+      "국제브랜드 수수료",
+      "해외서비스 수수료",
+      "상품권",
+      "유가증권",
+      "선불 카드",
+      "무이자 할부"
+    ],
+    "provenance": {
+      "page": 7,
+      "quote": "장기카드대출(카드론), 단기카드대출(현금서비스), 연회비, 제수수료, 이자\n· 국제브랜드 수수료 및 해외서비스 수수료\n· 상품권 등 현금성 유가증권 구매 및 선불 카드 구매·충전 금액\n· 현대카드의 모든 할인 서비스 및 무이자 할부 이용 금액"
+    }
+  },
+  "limit_groups": {
+    "g_auto_1": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 6000,
+        "T2": 10000
+      },
+      "provenance": {
+        "page": 4,
+        "quote": "전월 이용 금액 50만원 이상 시 월 6천원 할인\n- 전월 이용 금액 100만원 이상 시 월 1만원 할인"
+      }
+    },
+    "g_auto_2": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 6000,
+        "T2": 10000
+      },
+      "provenance": {
+        "page": 4,
+        "quote": "전월 이용 금액 50만원 이상 시 월 6천원 할인\n- 전월 이용 금액 100만원 이상 시 월 1만원 할인"
+      }
+    },
+    "g_auto_3": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 6000,
+        "T2": 10000
+      },
+      "provenance": {
+        "page": 4,
+        "quote": "전월 이용 금액 50만원 이상 시 월 6천원 할인\n- 전월 이용 금액 100만원 이상 시 월 1만원 할인"
+      }
+    },
+    "g_auto_4": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 6000,
+        "T2": 10000
+      },
+      "provenance": {
+        "page": 5,
+        "quote": "전월 이용 금액 50만원 이상 시 월 6천원 할인\n- 전월 이용 금액 100만원 이상 시 월 1만원 할인"
+      }
+    },
+    "g_auto_5": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 6000,
+        "T2": 10000
+      },
+      "provenance": {
+        "page": 5,
+        "quote": "전월 이용 금액 50만원 이상 시 월 6천원 할인\n- 전월 이용 금액 100만원 이상 시 월 1만원 할인"
+      }
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_1",
+      "name": "온라인 쇼핑몰 10% 청구 할인",
+      "kind": "rate",
+      "limit_group": "g_auto_1",
+      "provenance": {
+        "page": 4,
+        "quote": "온라인 쇼핑몰 10% 청구 할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "네이버쇼핑",
+          "쿠팡",
+          "G마켓",
+          "옥션",
+          "11번가",
+          "SSG.COM",
+          "컬리"
+        ]
+      }
+    },
+    {
+      "id": "auto_2",
+      "name": "병원·약국 10% 청구 할인",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 4,
+        "quote": "병원·약국 10% 청구 할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "종합병원",
+          "한의원",
+          "약국"
+        ]
+      }
+    },
+    {
+      "id": "auto_3",
+      "name": "학원 10% 청구 할인",
+      "kind": "rate",
+      "limit_group": "g_auto_3",
+      "provenance": {
+        "page": 4,
+        "quote": "학원 10% 청구 할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "입시학원",
+          "예체능학원",
+          "자동차학원"
+        ]
+      }
+    },
+    {
+      "id": "auto_4",
+      "name": "주유 10% 청구 할인",
+      "kind": "rate",
+      "limit_group": "g_auto_4",
+      "provenance": {
+        "page": 5,
+        "quote": "주유 10% 청구 할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "GS칼텍스",
+          "SK에너지",
+          "HD현대오일뱅크",
+          "S-OIL"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "생활 요금 정기 결제 10% 청구 할인",
+      "kind": "rate",
+      "limit_group": "g_auto_5",
+      "provenance": {
+        "page": 5,
+        "quote": "생활 요금 정기 결제 10% 청구 할인"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2"
+      ],
+      "requires_recurring": true,
+      "match": {
+        "merchant_keywords": [
+          "SKT",
+          "KT",
+          "LG U+",
+          "아파트 관리비",
+          "도시가스 요금"
+        ]
+      }
+    }
+  ],
+  "not_computed": [],
+  "pending": [],
+  "extracted_at": "2026-11-05T13:52:15"
+}

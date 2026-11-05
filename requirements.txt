@@ -1,0 +1,33 @@
+# Python 3.12
+# 설치: python -m pip install -r requirements.txt
+# 우리카드 약관 수집용 브라우저: python -m playwright install chromium
+
+# 에이전트 (LangChain / LangGraph / Bedrock)
+langchain==1.4.7
+langgraph==1.2.17
+langchain-aws==1.9.0
+
+# RAG
+langchain-chroma==1.1.0
+langchain-text-splitters==1.1.3
+pdfplumber==0.11.10
+
+# 사용내역 MCP 연결
+mcp==1.30.0
+langchain-mcp-adapters==0.3.2
+httpx==0.28.1
+
+# 약관 수집 (우리카드)
+playwright==1.64.1
+
+# POST /query 서버와 통합 화면 (명세서 업로드)
+fastapi==0.162.0
+uvicorn==0.54.0
+python-multipart==0.0.33
+
+# 명세서 엑셀 읽기
+openpyxl==3.1.5
+xlrd==2.0.1
+
+# 설정
+python-dotenv==1.2.4

@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+data/chroma/
+data/terms/
+data/card_mapping.json
+data/interest_cards.json
+data/category_mapping_auto.json
+data/catalog/
+evaluation/local/
+# 실제 카드 명세서(로컬 검증용)는 올리지 않는다
+/*.xls
+/*.xlsx

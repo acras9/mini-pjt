@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "product": {"issuer": "KB", "code": "09292", "name": "쿠팡 와우 카드"},
+  "source": {
+    "source_url": "https://img2.kbcard.com/obj/card/download/_09292__prdctOpmn_20250702.pdf",
+    "snapshot_id": "8ff0fe99db73",
+    "file": "_09292__prdctOpmn_20250702.pdf"
+  },
+  "verified_by": "사람이 약관 원문과 대조해 확인 (2026-11-04)",
+  "benefit_unit": "쿠팡캐시 적립(원)",
+  "pooling": false,
+  "pooling_provenance": {"page": 1, "quote": "가족카드 발급은 불가합니다."},
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "전월 실적 조건이 없는 카드라 실적 제외 조항이 계산에 영향을 주지 않는다.",
+    "provenance": [{"page": 1, "quote": "적립한도: 월 2만원 (전월 실적 조건 없음)"}],
+    "traps": []
+  },
+  "rounding": {"value": "floor_per_txn", "default_applied": true},
+  "cancel": {"value": "취소금액 적립분만큼 차감", "default_applied": false,
+             "provenance": {"page": 1, "quote": "카드 사용 후 취소할 경우 취소금액 적립분만큼 차감"}},
+  "tiers": [
+    {"id": "all", "min": 0, "label": "전월 실적 조건 없음",
+     "provenance": {"page": 1, "quote": "적립한도: 월 2만원 (전월 실적 조건 없음)"}}
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": ["현금서비스", "카드론", "상품권", "선불카드", "관리비", "학교", "정부지원금", "보육료", "등록금", "국세", "지방세", "공과금", "전기요금", "수도요금", "건강보험", "국민연금", "고용보험", "산재보험", "수수료", "이자", "연체료", "연회비"],
+    "provenance": {"page": 1, "quote": "무이자할부 이용금액, 취소금액, 단기카드대출(현금서비스), 장기카드대출(카드론), 상품권 및 선불카드(선불전자지급수단 포"}
+  },
+  "limit_groups": {
+    "coupang": {"limit_by_tier": {"all": 20000},
+                "provenance": {"page": 1, "quote": "적립한도: 월 2만원 (전월 실적 조건 없음)"}},
+    "others": {"limit_by_tier": {"all": 2000},
+               "provenance": {"page": 1, "quote": "적립한도: 월 2천원 (전월 실적 조건 없음)"}}
+  },
+  "limit_carryover": {"value": false, "provenance": {"page": 3, "quote": "전표 매입 순서대로 월간 한도 내 서비스 적용되며, 잔여 한도는 이월되지 않습니다."}},
+  "lines": [
+    {"id": "coupang_2", "name": "쿠팡·쿠팡이츠·쿠팡플레이 2% 적립", "kind": "rate", "rate_bp": 200, "limit_group": "coupang",
+     "match": {"merchant_keywords": ["쿠팡"]},
+     "fallback_to_base": false,
+     "provenance": {"page": 1, "quote": "쿠팡, 쿠팡이츠, 쿠팡플레이 이용금액 2% 쿠팡캐시 적립"},
+     "conditions_provenance": {"page": 1, "quote": "쿠팡, 쿠팡이츠, 쿠팡플레이 이용금액은 적립 제외"}}
+  ],
+  "base_line": {"id": "others_02", "name": "쿠팡 외 국내외 가맹점 0.2% 적립", "kind": "rate", "rate_bp": 20, "limit_group": "others",
+                "provenance": {"page": 1, "quote": "국내외 가맹점 이용금액 0.2% 쿠팡캐시 적립"}},
+  "not_computed": []
+}

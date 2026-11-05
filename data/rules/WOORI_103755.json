@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "WOORI",
+    "code": "103755",
+    "name": "카드의정석2 7CORE"
+  },
+  "source": {
+    "source_url": "https://pc.wooricard.com/dcpc/yh1/cct/cct11/prdntc/H1CCT211S09.do?crdPrdCd=103755",
+    "snapshot_id": "542c40fae8fb",
+    "file": "상품안내장_카드의정석2 7CORE.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "ocr",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "pooling_provenance": {
+    "page": 1,
+    "quote": "가족카드는 발급 불가합니다."
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": true,
+    "exclude_merchant_keywords": [
+      "무이자할부",
+      "보육료",
+      "유치원보조비",
+      "바우처",
+      "대학등록금",
+      "대학원등록금",
+      "국세",
+      "지방세",
+      "관세",
+      "공공요금",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "전기요금",
+      "우편요금",
+      "도시가스",
+      "상하수도",
+      "과태료",
+      "벌칙금",
+      "벌금",
+      "여권발급",
+      "상품권",
+      "선불카드",
+      "기프트카드",
+      "교통카드",
+      "고속버스",
+      "관리비",
+      "임대료",
+      "수수료",
+      "연회비",
+      "현금서비스",
+      "카드론",
+      "의약품",
+      "제약회사",
+      "해외가맹점"
+    ],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 2,
+        "quote": "'가대 생활광역 10% 청구할인' 혜택이 적용된 이용금액(할인금액 포함된 총 금액), 무이자할부금액, 정부지원금(보육료, 유치원보조비, 바우처 이용금액 등), 대학(대학원)등록금"
+      },
+      {
+        "page": 2,
+        "quote": "'가대 생활광역 10% 청구할인' 혜택이 적용된 이용금액(할인금액 포함된 총 금액)"
+      }
+    ],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "500,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 500000,
+      "label": "50만원 이상 100만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+      }
+    },
+    {
+      "id": "T2",
+      "min": 1000000,
+      "label": "100만원 이상 200만원 미만",
+      "provenance": {
+        "page": 2,
+        "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+      }
+    },
+    {
+      "id": "T3",
+      "min": 2000000,
+      "label": "200만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "무이자할부",
+      "보육료",
+      "유치원보조비",
+      "바우처",
+      "대학등록금",
+      "대학원등록금",
+      "국세",
+      "지방세",
+      "관세",
+      "공공요금",
+      "건강보험",
+      "국민연금",
+      "고용보험",
+      "산재보험",
+      "전기요금",
+      "우편요금",
+      "도시가스",
+      "상하수도",
+      "과태료",
+      "벌칙금",
+      "벌금",
+      "여권발급",
+      "상품권",
+      "선불카드",
+      "기프트카드",
+      "교통카드",
+      "고속버스",
+      "관리비",
+      "임대료",
+      "수수료",
+      "연회비",
+      "현금서비스",
+      "카드론",
+      "의약품",
+      "제약회사",
+      "해외가맹점"
+    ],
+    "provenance": {
+      "page": 2,
+      "quote": "할인 제외 : 무이자할부금액, 정부지원금(보육료, 유치원보조비, 바우처 이용금액 등), 대학(대학원) 등록금, 국세·지방세·관세·장학보금(항목금)*, 상품권(카카오톡 선물하기 등 모바일 상품권 포함)"
+    }
+  },
+  "limit_groups": {
+    "g_auto_1": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    },
+    "g_auto_2": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    },
+    "g_auto_3": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    },
+    "g_auto_4": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    },
+    "g_auto_5": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    },
+    "g_auto_6": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    },
+    "g_auto_7": {
+      "limit_by_tier": {
+        "none": 0,
+        "T1": 4000,
+        "T2": 6000,
+        "T3": 12000
+      },
+      "provenance": [
+        {
+          "page": 2,
+          "quote": "50만원 이상 100만원 미만 | 4천원 | 2만 8천원"
+        },
+        {
+          "page": 2,
+          "quote": "100만원 이상 200만원 미만 | 6천원 | 4만 2천원"
+        },
+        {
+          "page": 2,
+          "quote": "200만원 이상 | 1만 2천원 | 8만 4천원"
+        }
+      ]
+    }
+  },
+  "lines": [
+    {
+      "id": "auto_1",
+      "name": "온라인쇼핑 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_1",
+      "provenance": {
+        "page": 2,
+        "quote": "온라인쇼핑 | 쿠팡, SSG.COM, 컬리, 인터넷면세점(롯데/신라/신세계/현대)"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "min_amount": 20000,
+      "match": {
+        "merchant_keywords": [
+          "쿠팡",
+          "SSG.COM",
+          "컬리",
+          "인터넷면세점",
+          "롯데",
+          "신라",
+          "신세계",
+          "현대"
+        ]
+      }
+    },
+    {
+      "id": "auto_2",
+      "name": "대형마트 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_2",
+      "provenance": {
+        "page": 2,
+        "quote": "대형마트 | 이마트, 트레이더스 홈세일 클럽, 롯데마트"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "min_amount": 20000,
+      "match": {
+        "merchant_keywords": [
+          "이마트",
+          "트레이더스",
+          "홈플러스",
+          "롯데마트"
+        ]
+      }
+    },
+    {
+      "id": "auto_3",
+      "name": "배달앱 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_3",
+      "provenance": {
+        "page": 2,
+        "quote": "배달앱 | 배달의민족, 쿠팡이츠, 요기요"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "min_amount": 20000,
+      "match": {
+        "merchant_keywords": [
+          "배달의민족",
+          "쿠팡이츠",
+          "요기요"
+        ]
+      }
+    },
+    {
+      "id": "auto_4",
+      "name": "커피 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_4",
+      "provenance": {
+        "page": 2,
+        "quote": "커피 | 스타벅스, 투썸플레이스, 폴바셋, 이디야"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "스타벅스",
+          "투썸플레이스",
+          "폴바셋",
+          "이디야"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "교육 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_5",
+      "provenance": {
+        "page": 2,
+        "quote": "교육 | 외국어학원, 입시/보습학원, 예체능학원 업종, 교보문고, 영풍문고"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "외국어학원",
+          "입시학원",
+          "보습학원",
+          "예체능학원",
+          "교보문고",
+          "영풍문고"
+        ]
+      }
+    },
+    {
+      "id": "auto_6",
+      "name": "병원 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_6",
+      "provenance": {
+        "page": 2,
+        "quote": "병원 | 종합병원, 일반병원, 치과의원/병원, 한방병원, 한의원, 동물병원 업종"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "종합병원",
+          "일반병원",
+          "치과의원",
+          "치과병원",
+          "한방병원",
+          "한의원",
+          "동물병원"
+        ]
+      }
+    },
+    {
+      "id": "auto_7",
+      "name": "주유 10% 청구할인",
+      "kind": "rate",
+      "limit_group": "g_auto_7",
+      "provenance": {
+        "page": 2,
+        "quote": "주유 | SK에너지, GS칼텍스, HD현대오일뱅크, S-OIL"
+      },
+      "rate_provenance": {
+        "page": 2,
+        "quote": "10% 할인을 쏘다"
+      },
+      "rate_bp": 1000,
+      "available_tiers": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "SK에너지",
+          "GS칼텍스",
+          "HD현대오일뱅크",
+          "S-OIL"
+        ]
+      }
+    }
+  ],
+  "not_computed": [],
+  "pending": [],
+  "extracted_at": "2026-11-05T13:50:04"
+}
