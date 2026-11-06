@@ -994,6 +994,12 @@ async def mcp_login():
     return await tools.start_web_login()
 
 
+@api.post("/mcp/logout")
+async def mcp_logout():
+    """지금 연결된 MyFinance 서버의 저장 토큰을 지워 연결을 끊는다(다른 서버 토큰은 그대로)."""
+    return await tools.web_logout()
+
+
 @api.get("/conversations")
 async def conversations(channel: str = "query"):
     """화면 복원용으로 최근 대화 기록(최근 7일, 최대 30턴)을 돌려준다. 화면에서 지운 시각 이전 대화는 뺀다."""
@@ -1492,7 +1498,7 @@ APP_HTML = r"""<!doctype html>
 <header><h1>카드 혜택 BEP 에이전트</h1>
   <nav><button data-tab="ask">질문</button><button data-tab="map">카드 매핑</button><button data-tab="rec">카드 추천</button><button data-tab="stmt">명세서 업로드</button><button data-tab="memo" id="memoTab">사용자 메모</button></nav>
   <div class="mcp"><span id="mcpDot" class="dot"></span><span id="mcpText">MyFinance 확인 중...</span>
-    <button id="mcpLogin" class="sub" style="display:none">MyFinance 로그인</button></div></header>
+    <button id="mcpLogin" class="sub" style="display:none">MyFinance 로그인</button><button id="mcpLogout" class="sub" style="display:none">MyFinance 로그아웃</button></div></header>
 <div class="wrap">
   <section class="panel">
     <div class="tab" id="ask"><h2 style="display:flex;justify-content:space-between;align-items:center">질문<button type="button" class="sub" id="clearAsk" title="화면의 대화만 지웁니다. 대화 기록 파일(JSONL)은 남습니다.">대화 지우기</button></h2><div class="log" id="askLog"></div>
@@ -1972,6 +1978,7 @@ async function mcpRefresh(){
     $('mcpDot').className='dot '+(s.status==='connected'?'ok':(s.status==='waiting'?'':'bad'));
     $('mcpText').textContent=(MCP_TEXT[s.status]||s.status)+(s.server?' · '+s.server:'')+(s.status==='error'&&s.error?' ('+s.error+')':'');
     $('mcpLogin').style.display=(s.status==='connected'||s.status==='waiting')?'none':'';
+    $('mcpLogout').style.display=s.status==='connected'?'':'none';
     return s.status}
   catch(err){$('mcpText').textContent='서버 연결 실패';return 'error'}
 }
@@ -1984,6 +1991,10 @@ $('mcpLogin').onclick=async()=>{
   else{if(tab)tab.close();if(r.error){$('mcpText').textContent=r.error;return}}
   for(let i=0;i<150;i++){const st=await mcpRefresh();if(st!=='waiting')break;await new Promise(ok=>setTimeout(ok,2000))}
   if(await mcpRefresh()==='connected')loadCards();
+};
+$('mcpLogout').onclick=async()=>{
+  if(!confirm('MyFinance 연결을 끊을까요? 다시 쓰려면 로그인해야 합니다.'))return;
+  await fetch('/mcp/logout',{method:'POST'});await mcpRefresh();
 };
 // ---- 시작 탭 ----
 (async()=>{mcpRefresh();const cards=await loadCards();show(location.pathname.startsWith('/setup')||!cards.length?'map':'ask')})();

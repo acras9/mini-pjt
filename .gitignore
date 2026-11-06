@@ -8,6 +8,6 @@ data/interest_cards.json
 data/category_mapping_auto.json
 data/catalog/
 evaluation/local/
-# 실제 카드 명세서(로컬 검증용)는 올리지 않는다
+# 실제 카드 명세서(로컬 검증용)는 루트에 두고 올리지 않는다. 시험용 가짜 명세서는 data/statements/에 두고 올린다
 /*.xls
 /*.xlsx

@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "product": {
+    "issuer": "SAMSUNG",
+    "code": "AAP1278",
+    "name": "이마트신세계 삼성카드 7 (2023.11.30 부터 신규 발급 중단) "
+  },
+  "source": {
+    "source_url": "https://www.samsungcard.com/filedownload.do?grpNo=1zPVy1PuFbwGC7xZyM4qthFLWGammpvOuHeidi0y8XY%3D&sn=1",
+    "snapshot_id": "de2866a8498f",
+    "file": "이마트신세계 삼성카드 7 이용안내장.pdf"
+  },
+  "status": "auto",
+  "verified_by": "자동 추출 (인용문 원문 대조 통과, 사람 확인 전)",
+  "text_source": "pdf",
+  "benefit_unit": "청구할인",
+  "pooling": false,
+  "pooling_provenance": {
+    "page": 1,
+    "quote": "가족카드 해외겸용(Mastercard) 1만 5천원ㅣ국내전용 1만 3천원"
+  },
+  "performance": {
+    "checked": true,
+    "exclude_interest_free_installment": false,
+    "exclude_merchant_keywords": [],
+    "discounted_sales_excluded_bp": 0,
+    "check_note": "자동 추출: 약관의 전월실적 제외 조항과 할인받은 매출 제외 여부를 원문 대조로 확인했다.",
+    "provenance": [
+      {
+        "page": 2,
+        "quote": "전월 이마트 이용금액 20만원 이상 시 월 1회 제공됩니다."
+      },
+      {
+        "page": 2,
+        "quote": "전월 이마트 이용금액 20만원 이상 시 월 1회 제공됩니다."
+      }
+    ],
+    "traps": []
+  },
+  "rounding": {
+    "value": "floor_per_txn",
+    "default_applied": true
+  },
+  "cancel": {
+    "value": "원래 승인월에서 차감",
+    "default_applied": true
+  },
+  "tiers": [
+    {
+      "id": "none",
+      "min": 0,
+      "label": "200,000원 미만"
+    },
+    {
+      "id": "T1",
+      "min": 200000,
+      "label": "전월 이마트 이용금액 20만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "전월 이마트 이용금액 20만원 이상 시 월 1회 제공됩니다."
+      }
+    },
+    {
+      "id": "T2",
+      "min": 300000,
+      "label": "직전 3개월 월평균 일시불 및 할부 이용금액 30만원 이상",
+      "provenance": {
+        "page": 2,
+        "quote": "직전 3개월 월평균 일시불 및 할부 이용금액 30만원 이상 시 일 1회, 연 5회 제공됩니다."
+      }
+    }
+  ],
+  "exclusions": {
+    "interest_free_installment": true,
+    "merchant_keywords": [
+      "법인공용카드",
+      "무이자할부",
+      "다이어트할부",
+      "삼성카드 할인",
+      "고용보험",
+      "산재보험",
+      "장애인 고용부담금",
+      "국세",
+      "지방세",
+      "공과금",
+      "대학 등록금",
+      "대중교통",
+      "선불카드 충전",
+      "휴대폰알림서비스",
+      "스마트오토서비스",
+      "이마트 이클럽"
+    ],
+    "provenance": {
+      "page": 2,
+      "quote": "법인공용카드, 무이자할부, 다이어트할부, 삼성카드 할인이 적용된 일시불 및 할부 이용금액"
+    }
+  },
+  "limit_groups": {},
+  "lines": [
+    {
+      "id": "auto_4",
+      "name": "음식점, 주유, 신세계백화점 주중 1.0% 빅포인트 적립",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "음식점, 주유, 신세계백화점 1.0% 2%"
+      },
+      "rate_bp": 100,
+      "match": {
+        "merchant_keywords": [
+          "음식점",
+          "주유",
+          "신세계백화점"
+        ]
+      }
+    },
+    {
+      "id": "auto_5",
+      "name": "음식점, 주유, 신세계백화점 주말(토·일) 2% 빅포인트 적립",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "음식점, 주유, 신세계백화점 1.0% 2%"
+      },
+      "rate_bp": 200,
+      "match": {
+        "merchant_keywords": [
+          "음식점",
+          "주유",
+          "신세계백화점"
+        ]
+      }
+    },
+    {
+      "id": "auto_6",
+      "name": "대중교통, 택시, 제과, 편의점 주중 1.5% 빅포인트 적립",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "대중교통, 택시, 제과, 편의점 1.5% 3%"
+      },
+      "rate_bp": 150,
+      "match": {
+        "merchant_keywords": [
+          "대중교통",
+          "택시",
+          "제과",
+          "편의점"
+        ]
+      }
+    },
+    {
+      "id": "auto_7",
+      "name": "대중교통, 택시, 제과, 편의점 주말(토·일) 3% 빅포인트 적립",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "대중교통, 택시, 제과, 편의점 1.5% 3%"
+      },
+      "rate_bp": 300,
+      "match": {
+        "merchant_keywords": [
+          "대중교통",
+          "택시",
+          "제과",
+          "편의점"
+        ]
+      }
+    },
+    {
+      "id": "auto_8",
+      "name": "CGV 홈페이지 및 스마트폰 App 예매 시 3,000원 즉시할인",
+      "kind": "fixed",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "CGV 홈페이지 및 스마트폰 App을 통한 예매 시 3,000원 즉시할인"
+      },
+      "fixed_won": 3000,
+      "available_tiers": [
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "CGV"
+        ]
+      }
+    },
+    {
+      "id": "auto_9",
+      "name": "CGV 현장결제 시 3,000원 현장할인",
+      "kind": "fixed",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "CGV 현장결제 시 3,000원 현장할인"
+      },
+      "fixed_won": 3000,
+      "available_tiers": [
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "CGV"
+        ]
+      }
+    },
+    {
+      "id": "auto_10",
+      "name": "삼성미술관 리움 일반 입장권 3인까지 50% 결제일할인",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "일반 입장권 3인까지 50% 결제일할인(청구할인)"
+      },
+      "rate_bp": 5000,
+      "available_tiers": [
+        "T2"
+      ],
+      "match": {
+        "merchant_keywords": [
+          "삼성미술관 리움"
+        ]
+      }
+    },
+    {
+      "id": "auto_11",
+      "name": "세콤홈즈 보안서비스 월 이용료 5% 현장할인",
+      "kind": "rate",
+      "limit_group": null,
+      "provenance": {
+        "page": 2,
+        "quote": "보안서비스 월 이용료 자동결제 신규 신청 시 매월 5% 현장할인"
+      },
+      "rate_bp": 500,
+      "requires_recurring": true,
+      "match": {
+        "merchant_keywords": [
+          "세콤홈즈"
+        ]
+      }
+    }
+  ],
+  "base_line": {
+    "id": "auto_2",
+    "name": "일반 가맹점 주중 0.5% 빅포인트 적립",
+    "kind": "rate",
+    "limit_group": null,
+    "provenance": {
+      "page": 2,
+      "quote": "일반 가맹점 0.5%"
+    },
+    "rate_bp": 50
+  },
+  "not_computed": [
+    {
+      "name": "이마트·이마트몰·신세계백화점·신세계몰 2~3개월 무이자할부",
+      "reason": "무이자할부는 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "이마트·이마트몰·신세계백화점·신세계몰 2~3개월 무이자할부"
+      }
+    },
+    {
+      "name": "모든 가맹점 주말(토·일) 2~3개월 무이자할부",
+      "reason": "무이자할부는 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "모든 가맹점 주말(토·일) 2~3개월 무이자할부"
+      }
+    },
+    {
+      "name": "이마트·신세계 이용 시 신세계포인트 적립",
+      "reason": "타사 포인트 적립은 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "이용금액 1,000원당 이마트 1 포인트, 이마트몰·신세계몰 7 포인트"
+      }
+    },
+    {
+      "name": "신세계백화점 5% 전자할인쿠폰 월 3~6매 제공",
+      "reason": "쿠폰 제공은 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "신세계백화점 5% 전자할인쿠폰 월 3~6매 제공"
+      }
+    },
+    {
+      "name": "신세계백화점 무료주차권 월 2매 제공",
+      "reason": "주차권 제공은 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "신세계백화점 무료주차권 월 2매 제공"
+      }
+    },
+    {
+      "name": "에버랜드 본인 및 동반 소인 1인까지 자유이용권 50% 현장할인",
+      "reason": "연 5회 제한이 있는 놀이공원 할인은 월 단위 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "에버랜드 본인 및 동반 소인 1인까지 자유이용권 50% 현장할인"
+      }
+    },
+    {
+      "name": "놀이공원 자유이용권 50% 및 워터파크 입장권 30% 현장할인",
+      "reason": "연 5회 제한이 있는 놀이공원 할인은 월 단위 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "놀이공원 자유이용권 50% 및 워터파크 입장권 30% 현장할인"
+      }
+    },
+    {
+      "name": "삼성전자 세이브포인트 기본 적립률 0.8%를 1%로 상향",
+      "reason": "포인트연계할부서비스는 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "삼성전자 세이브포인트 기본 적립률 0.8%를 1%로 상향"
+      }
+    },
+    {
+      "name": "삼성 관계사 3개월 무이자할부",
+      "reason": "무이자할부는 월 단위 할인 계산에 포함하지 않음",
+      "provenance": {
+        "page": 2,
+        "quote": "삼성 관계사 3개월 무이자할부"
+      }
+    }
+  ],
+  "pending": [
+    {
+      "name": "이마트 6,000원 결제일할인",
+      "reason": "한도 금액을 약관 원문에서 확인하지 못함",
+      "status": "pending",
+      "value": {
+        "rate_text": null,
+        "fixed_won": 6000,
+        "limits": [
+          {
+            "tier_min_won": 200000,
+            "limit_won": 6000
+          }
+        ]
+      },
+      "quote": "이마트에서 건별 10만원 이상 이용 시 6,000원 결제일할인(청구할인)"
+    },
+    {
+      "name": "일반 가맹점 주말(토·일) 1% 빅포인트 적립",
+      "reason": "기본 영역이 둘 이상이라 하나만 계산",
+      "status": "pending"
+    }
+  ],
+  "extracted_at": "2026-11-06T10:04:53"
+}

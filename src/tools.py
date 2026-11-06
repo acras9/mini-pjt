@@ -391,6 +391,23 @@ async def mcp_status() -> dict:
     return {"status": status, "server": urlparse(spend_mcp_url()).netloc, "error": error or WEB_LOGIN.get("error")}
 
 
+async def web_logout() -> dict:
+    """통합 화면의 로그아웃 버튼용: 지금 서버(SPEND_MCP_URL)의 저장 토큰만 지우고 조회 캐시를 비운다.
+
+    다른 서버의 토큰과 동적 등록 클라이언트 정보는 남겨, 다시 로그인할 때 그대로 쓴다.
+    """
+    url = spend_mcp_url()
+    async with _token_file_lock():
+        path = _token_path()
+        entries = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        removed = bool(entries.get(url, {}).pop("tokens", None))
+        if removed:
+            path.write_text(json.dumps(entries, ensure_ascii=False, indent=2), encoding="utf-8")
+    _MCP_CACHE.clear()
+    WEB_LOGIN.update(status="idle", auth_url=None, error=None)
+    return {"logged_out": removed, "server": urlparse(url).netloc}
+
+
 async def start_web_login() -> dict:
     """통합 화면의 로그인 버튼용: OAuth 로그인을 시작하고 사용자가 열 로그인 주소를 돌려준다.
 
@@ -861,7 +878,10 @@ def compute_benefits(rules: dict, txns: list[dict], prev_month_spend: int,
                        + [{"date": t["date"], "merchant": t["merchant"], "amount": t["amount"],
                            "line": None, "how": "매핑 필요", "discount": 0} for t in unmatched]
                        + [{"date": t["date"], "merchant": t["merchant"], "amount": t["amount"],
-                           "line": None, "how": "혜택 없음", "discount": 0} for t in no_benefit],
+                           "line": None, "how": "혜택 없음", "discount": 0} for t in no_benefit]
+                       # 조건 미달(건당 최소 금액 등) 거래도 넣어야 명세서 대조에서 'MCP에 없는 거래'로 잘못 나오지 않는다
+                       + [{"date": t.get("date"), "merchant": t["merchant"], "amount": t["amount"],
+                           "line": None, "how": f"조건 미달: {t['reason']}", "discount": 0} for t in ineligible],
     }
 
 
@@ -1265,8 +1285,10 @@ def retro_insights(rules: dict, result: dict, this_month_perf: dict, category_ma
                         f"{line['name']}은 BEP {row['bep_spend']:,}원을 {over:,}원 {overspent}. "
                         f"넘긴 금액은 할인 0% 구간이라 다른 카드로 옮길 후보입니다.{note}"})
         # 4) 남은 한도
-        if row["status"] == "구간 안" and row["remaining_to_bep"] and row.get("worth_filling") is not False:
-            out.append({"kind": "남은 한도", "amount": row["remaining_limit"] or 0, "message":
+        # 한도 금액을 알 수 없는 영역(remaining_limit=None)은 남은 한도 문구를 만들지 않는다
+        if (row["status"] == "구간 안" and row["remaining_to_bep"] and row["remaining_limit"]
+                and row.get("worth_filling") is not False):
+            out.append({"kind": "남은 한도", "amount": row["remaining_limit"], "message":
                         f"{line['name']}은 한도 {row['remaining_limit']:,}원이 남았습니다. "
                         f"이 영역에서 {row['remaining_to_bep']:,}원 {more_to_full}."})
     # 5) 빈 영역
