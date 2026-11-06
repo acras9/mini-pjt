@@ -202,6 +202,11 @@ def llm_check(text: str, context: str = "") -> InputCheck:
     return invoke_with_switch(lambda llm: llm.with_structured_output(InputCheck).invoke(prompt))
 
 
+CARD_TERM_RE = re.compile(r"결제|카드|할인|적립|실적|한도|혜택|명세서|캐시백|포인트")
+# 도구로 확인해야 하는 질문: 카드 키를 말하거나 약관·조건을 묻는다
+NEEDS_TOOL_RE = re.compile(r"\b(?:KB|SAMSUNG|WOORI|HANA|HYUNDAI|SHINHAN|LOTTE):\w+|카드 목록|보유 카드|내 카드|약관|조건|실적|한도|발급|할인율|적립률")
+
+
 def input_guard(text: str, use_llm: bool = True, context: str = "") -> tuple[str | None, str]:
     """질문을 1차 정규식, 2차 LLM 순서로 검사한다. (차단 종류 또는 None, 사유)를 돌려준다."""
     kind, reason = rule_check(text)
@@ -209,6 +214,8 @@ def input_guard(text: str, use_llm: bool = True, context: str = "") -> tuple[str
         return kind, f"[규칙] {reason}"
     try:
         result = llm_check(text, context)
+        if result.category == "off_topic" and CARD_TERM_RE.search(text):  # 카드 결제 질문은 주제 밖으로 막지 않는다
+            return None, "통과(카드 용어 포함)"
         if result.category != "normal" and result.confidence > 0.7:  # 낮은 확신의 차단은 하지 않는다
             return result.category, f"[LLM] {result.reason}"
     except Exception as exc:  # LLM 판별 실패 시 규칙 결과만 쓴다
@@ -351,10 +358,18 @@ def grounding_check(state, runtime):
     evidence = "\n".join([_text(messages[start])] +  # 사용자 메모의 숫자는 근거로 치지 않는다
                          [m.content if isinstance(m.content, str) else str(m.content)
                           for m in run if isinstance(m, ToolMessage)])
+    retried = any(isinstance(m, HumanMessage) and m.additional_kwargs.get(GROUNDING_FEEDBACK_KEY) for m in run)
+    if (not retried and not any(isinstance(m, ToolMessage) for m in run)
+            and NEEDS_TOOL_RE.search(_text(messages[start]))):  # 도구 없이 답한 카드·약관 질문은 한 번 되돌린다
+        feedback = ("[내부 근거 검사 — 사용자에게 보이지 않는 시스템 메시지다. 사과·감사 없이 최종 답변만 다시 써라.] "
+                    "이번 질문에서 도구를 하나도 부르지 않았습니다. 시스템 프롬프트의 확정 카드 목록만으로 답하지 마세요. "
+                    "확정 목록에 없는 카드 키면 get_my_cards로 '매핑 필요' 여부를 확인하고, 약관 사실은 search_card_terms로 "
+                    "원문을 찾은 뒤 그 결과로 답하세요.")
+        return {"messages": [HumanMessage(feedback, additional_kwargs={GROUNDING_FEEDBACK_KEY: True})],
+                "jump_to": "model"}
     bad = ungrounded_numbers(_text(last), evidence)
     if not bad:
         return None
-    retried = any(isinstance(m, HumanMessage) and m.additional_kwargs.get(GROUNDING_FEEDBACK_KEY) for m in run)
     if retried:
         log_guard("ungrounded", ", ".join(bad))
         kwargs = {**last.additional_kwargs, "grounding": {"ungrounded": bad}}
